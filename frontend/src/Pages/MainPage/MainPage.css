@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: burlywood;
+}
+
+.menu-page {
+  display: flex;
+  justify-content: center;
+  height: 900px;
+  width: 1250px;
+  background-color: blue;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: inherit;
+  height: 100px;
+  background-color: teal;
+}
+
+.logo {
+  color: white;
+  width: 150px;
+  height: 100px;
+  background-color: black;
+}
+
+#photo {
+  width: 35px;
+  height: 35px;
+  background-color: red;
+  border: 15px solid black;
+  border-radius: 50%;
+}
+
+.product-page {
+  height: 900px;
+  width: 750px;
+  background-color: brown;
+  color: white;
+  overflow-y: scroll;
+}
