@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import flowertop from '../../assets/graphics/graphics-header.svg';
 import CartButton from '../CartButton/CartButton';
 import LogInButton from '../LogInButton/LogInButton';
+import SearchBar from '../SearchBar/Searchbar';
 import './style.css';
 
 function HeaderComponent() {
@@ -11,7 +12,8 @@ function HeaderComponent() {
         <Link to={'/'}>
           <img src={flowertop}></img>
         </Link>
-        <input id="searchbar" type="search" placeholder={'Search...'} />
+        {/* <SearchBar /> */}
+        <input id="searchbar" type="text" placeholder={'Search...'}></input>
         <LogInButton />
         <CartButton />
       </div>
