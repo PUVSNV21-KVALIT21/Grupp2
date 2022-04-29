@@ -5,20 +5,20 @@ body {
   background-color: burlywood;
 }
 
-.menu-page {
-  display: flex;
-  justify-content: center;
-  height: 900px;
-  width: 1250px;
-  background-color: blue;
-}
-
 .header {
   display: flex;
   align-items: center;
-  width: inherit;
+  max-width: 900px;
   height: 100px;
   background-color: teal;
+}
+
+.product-page {
+  height: 850px;
+  max-width: 900px;
+  background-color: brown;
+  color: white;
+  overflow-y: scroll;
 }
 
 .logo {
@@ -34,12 +34,4 @@ body {
   background-color: red;
   border: 15px solid black;
   border-radius: 50%;
-}
-
-.product-page {
-  height: 900px;
-  width: 750px;
-  background-color: brown;
-  color: white;
-  overflow-y: scroll;
 }

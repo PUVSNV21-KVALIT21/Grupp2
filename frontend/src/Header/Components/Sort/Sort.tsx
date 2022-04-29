@@ -6,7 +6,7 @@ function Sort() {
 
   return (
     <div className="collapsible">
-      <div className="field" {...getToggleProps()}>
+      {/* <div className="field" {...getToggleProps()}>
         {isExpanded ? 'Hide' : 'Sort'}
       </div>
       <div {...getCollapseProps()}>
@@ -21,7 +21,7 @@ function Sort() {
           <br />
           <button>Discounted products</button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
