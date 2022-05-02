@@ -21,7 +21,7 @@ namespace Grupp2.Data.Migrations
                 table: "AspNetUsers",
                 type: "nvarchar(250)",
                 maxLength: 250,
-                nullable: false,
+                nullable: true,
                 defaultValue: "");
 
             migrationBuilder.AddColumn<string>(
