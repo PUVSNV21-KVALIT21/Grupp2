@@ -1,5 +1,9 @@
+.searchbar-wrapper {
+  display: flex;
+}
+
 #searchbar {
-  min-width: 100px;
+  min-width: 200px;
   width: 100%;
   padding: 9px 4px 9px 40px;
   height: 38px;

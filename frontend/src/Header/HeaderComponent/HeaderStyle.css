@@ -1,0 +1,36 @@
+.infinite-header {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1250px;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: brown;
+}
+
+.header-logo {
+  background: url('../../assets/graphics/Logonobackground.svg');
+  background-position: center;
+  background-size: cover;
+  min-width: 125px;
+  padding: 2rem;
+  margin-left: -2rem;
+  /* background-color: bisque; */
+}
+
+.header-searchbar {
+  width: 100%;
+  padding: 1rem;
+  /* background-color: yellow; */
+}
+
+.header-cart-button {
+  margin-right: -2rem;
+}

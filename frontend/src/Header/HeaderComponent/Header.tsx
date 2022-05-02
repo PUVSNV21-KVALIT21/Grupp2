@@ -1,21 +1,29 @@
 import { Link } from 'react-router-dom';
-import flowertop from '../../assets/graphics/graphics-header.svg';
-import CartButton from '../CartButton/CartButton';
-import LogInButton from '../LogInButton/LogInButton';
+import logo from '../../assets/graphics/Logo no background.svg';
+import CartButton from '../Header-Buttons/CartButton/CartButton';
+import LogInButton from '../Header-Buttons/LogInButton/LogInButton';
 import SearchBar from '../SearchBar/Searchbar';
-import './style.css';
+import { useState } from 'react';
+import './HeaderStyle.css';
 
 function HeaderComponent() {
+  const [text, setText] = useState('');
+
   return (
-    <div className="outer-element">
-      <div className="inner-element">
-        <Link to={'/'}>
-          <img src={flowertop}></img>
-        </Link>
-        {/* <SearchBar /> */}
-        <input id="searchbar" type="text" placeholder={'Search...'}></input>
-        <LogInButton />
-        <CartButton />
+    <div className="infinite-header">
+      <div className="header-wrapper">
+        <div className="header-logo">
+          <Link to={'/'}>{/* <img src={logo}></img> */}</Link>
+        </div>
+        <div className="header-searchbar">
+          <SearchBar query={text} onQueryChange={setText} />
+        </div>
+        <div className="header-login-button">
+          <LogInButton />
+        </div>
+        <div className="header-cart-button">
+          <CartButton />
+        </div>
       </div>
     </div>
   );

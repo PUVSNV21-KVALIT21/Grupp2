@@ -1,12 +1,12 @@
-import './style.css';
+import '../button-style.css';
 import { Link } from 'react-router-dom';
 
 function LogInButton() {
   return (
     <div>
       <Link to={'/'}>
-        <button className="login-button">
-          <p>Logga In</p>
+        <button className="button" id="login-button">
+          <p id="login-button-text">Logga In</p>
         </button>
       </Link>
     </div>
