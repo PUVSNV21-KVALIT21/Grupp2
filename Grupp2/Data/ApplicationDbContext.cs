@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Grupp2.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
@@ -20,6 +21,9 @@ namespace Grupp2.Data
         public string PostCode { get; set; }
         [MaxLength(50)]
         public string PostArea { get; set; }
+        public MembershipLevel? MembershipLevel { get; set; }
+        public Cart? Cart { get; set; }
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -28,5 +32,13 @@ namespace Grupp2.Data
             : base(options)
         {
         }
+
+        public DbSet<Product> Products { get; set; }
+        public DbSet<MembershipLevel> MembershipLevels { get; set; }
+        public DbSet<Discount> Discounts { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+
     }
 }
