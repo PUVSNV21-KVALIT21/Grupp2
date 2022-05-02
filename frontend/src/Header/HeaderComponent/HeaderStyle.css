@@ -1,33 +1,41 @@
 .infinite-header {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
+  /* position: absolute; */
+  /* max-width: 1250px;
+  width: 100%; */
+  /* margin: 0; */
+  /* height: 100px; */
+  /* left: 0rem; */
+  /* margin-left: 0; */
+  /* background-color: blue; */
 }
 
 .header-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 1250px;
-  width: 100%;
+  width: 1250px;
+  /* width: 100%; */
   padding: 0.5rem;
   background-color: brown;
 }
 
 .header-logo {
+  flex: 1;
   background: url('../../assets/graphics/Logonobackground.svg');
   background-position: center;
   background-size: cover;
-  min-width: 125px;
-  padding: 2rem;
+  max-width: 300px;
+  height: 100px;
   margin-left: -2rem;
   /* background-color: bisque; */
 }
 
 .header-searchbar {
-  width: 100%;
-  padding: 1rem;
+  flex: 1;
+  /* width: 100%; */
+  margin-right: 1.2rem;
+  margin-left: -1.5rem;
+  /* padding: 1rem; */
   /* background-color: yellow; */
 }
 

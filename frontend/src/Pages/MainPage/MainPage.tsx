@@ -9,6 +9,7 @@ import SearchBar from '../../Header/SearchBar/Searchbar';
 import data from '../../assets/data.json';
 import ProductPage from '../ProductPage/ProductPage';
 import SearchPage from './SearchPage';
+import Categories from '../Categories/Categories';
 
 function MainPage() {
   return (
@@ -16,13 +17,16 @@ function MainPage() {
       <div className="header">
         <HeaderComponent />
       </div>
-      {/* <div className="main-page">
-        mainpage
+      <div className="main-page">
+        <div className="categories">
+          <Categories />
+        </div>
         <Routes>
           <Route path="/" element={<ProductPage />} />
-          <Route path="/search" element={<SearchPage />} />
+          {/* <Route path="/search" element={<SearchPage />} /> */}
         </Routes>
-      </div> */}
+        mainpage
+      </div>
     </div>
   );
 }

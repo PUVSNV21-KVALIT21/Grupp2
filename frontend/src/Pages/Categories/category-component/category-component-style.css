@@ -1,0 +1,25 @@
+.category-wrapper {
+  position: relative;
+  inset: 0 0 0 -1.1rem;
+  background-color: bisque;
+  margin-top: 1rem;
+}
+
+.category-wrapper li {
+  list-style: none;
+}
+
+.category-wrapper img {
+  /* background-color: brown; */
+  width: 2rem;
+}
+
+.category-wrapper h1 {
+  position: relative;
+  inset: -0.5rem 0 0 0;
+  /* background-color: teal; */
+  font-size: 1rem;
+  color: white;
+  display: inline;
+  margin-left: 1rem;
+}

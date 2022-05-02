@@ -1,0 +1,12 @@
+.main-page-wrapper {
+}
+
+.main-page {
+  display: flex;
+  background-color: aqua;
+}
+
+.categories {
+  width: 240px;
+  background-color: blue;
+}
