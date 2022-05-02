@@ -15,7 +15,7 @@ namespace Grupp2.Data
         [MaxLength(250)]
         public string Address1 { get; set; }
         [MaxLength(250)]
-        public string Address2 { get; set; }
+        public string? Address2 { get; set; }
         [MaxLength(50)]
         public string PostCode { get; set; }
         [MaxLength(50)]
