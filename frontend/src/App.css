@@ -3,3 +3,7 @@ body {
   justify-content: center;
   background-color: teal;
 }
+
+/* * {
+  box-sizing: border-box;
+} */
