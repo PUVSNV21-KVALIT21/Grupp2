@@ -1,4 +1,4 @@
-ame: Build and deploy ASP.Net Core app to Azure Web App - Hakim-Livs
+name: Build and deploy ASP.Net Core app to Azure Web App - Hakim-Livs
 
 on:
   push:
