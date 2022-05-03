@@ -1,4 +1,11 @@
-.product-page {
-  width: 100%;
+.products {
+  display: grid;
+  /* justify-items: start; */
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 5px;
+  padding: 5px;
+  /* grid-template-rows: repeat(2, 1fr); */
+  /* width: 100%; */
+  /* height: fit-content; */
   background-color: blueviolet;
 }

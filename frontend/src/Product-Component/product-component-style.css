@@ -8,7 +8,7 @@
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgb(255, 90, 90);
   padding: 0.5rem;
-  margin: 10px;
+  margin-top: 5px;
 }
 
 .product {
@@ -19,22 +19,30 @@
 }
 
 .product h1 {
-  font-size: 1.2rem;
+  height: 50px;
+  font-size: 14px;
 }
 
 .product h2 {
-  font-size: 1.2rem;
+  height: 50px;
+  font-size: 15px;
+  margin-top: -1rem;
 }
 
 .product h3 {
+  height: 20px;
   font-size: 13px;
 }
 
 .product p {
+  height: 50px;
   font-size: 12px;
+  overflow: hidden;
 }
 
 .product-button {
+  position: relative;
+  inset: -5px 0 0 0;
   width: 12rem;
-  padding: 0.6rem;
+  padding: 0.5rem;
 }

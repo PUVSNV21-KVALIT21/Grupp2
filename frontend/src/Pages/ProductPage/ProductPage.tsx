@@ -17,12 +17,16 @@ function ProductPage() {
   return (
     <div className="product-page">
       <div className="products">
-        <Product
-          title={productData[1].title}
-          price={productData[1].price}
-          category={productData[1].category}
-          description={productData[1].description}
-        />
+        {productData.map((item) => {
+          return (
+            <Product
+              title={item.title}
+              price={item.price}
+              category={item.category}
+              description={item.description}
+            />
+          );
+        })}
       </div>
     </div>
   );
