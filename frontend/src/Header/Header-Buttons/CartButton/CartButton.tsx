@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function CartButton() {
   return (
     <div>
-      <Link to={'/'}>
+      <Link to={'/cart'}>
         <button className="button" id="cart-button">
           <p>Till Kassan</p>
         </button>

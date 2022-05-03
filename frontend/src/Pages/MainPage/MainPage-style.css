@@ -7,6 +7,6 @@
 }
 
 .categories {
-  width: 240px;
+  min-width: 200px;
   background-color: blue;
 }

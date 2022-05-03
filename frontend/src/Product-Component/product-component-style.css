@@ -1,0 +1,40 @@
+.product-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 200px;
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgb(255, 90, 90);
+  padding: 0.5rem;
+  margin: 10px;
+}
+
+.product {
+  text-align: center;
+  width: 200px;
+  height: 250px;
+  background-color: aqua;
+}
+
+.product h1 {
+  font-size: 1.2rem;
+}
+
+.product h2 {
+  font-size: 1.2rem;
+}
+
+.product h3 {
+  font-size: 13px;
+}
+
+.product p {
+  font-size: 12px;
+}
+
+.product-button {
+  width: 12rem;
+  padding: 0.6rem;
+}

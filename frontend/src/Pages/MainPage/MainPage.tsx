@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import './MainPage-style.css';
 import HeaderComponent from '../../Header/HeaderComponent/Header';
-import Products from '../../Products/Products';
+import Products from '../../Product-Component/product-component';
 import SearchBar from '../../Header/SearchBar/Searchbar';
 import data from '../../assets/data.json';
 import ProductPage from '../ProductPage/ProductPage';
@@ -25,7 +25,6 @@ function MainPage() {
           <Route path="/" element={<ProductPage />} />
           {/* <Route path="/search" element={<SearchPage />} /> */}
         </Routes>
-        mainpage
       </div>
     </div>
   );
