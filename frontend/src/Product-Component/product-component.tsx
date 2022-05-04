@@ -18,8 +18,8 @@ function Product({
         <h2>{price}</h2>
         <h3>{category}</h3>
         <p>{description}</p>
-        <button className="product-button">KÖP</button>
       </div>
+      <button className="product-button">KÖP</button>
     </div>
   );
 }

@@ -10,21 +10,19 @@ function HeaderComponent() {
   const [text, setText] = useState('');
 
   return (
-    <div className="infinite-header">
-      <div className="header-wrapper">
-        <Link to={'/'}>
-          <img src={logo} alt="hakims logo" className="header-logo"></img>
-        </Link>
-        <div className="header-searchbar">
-          <SearchBar query={text} onQueryChange={setText} />
+    <div className="header-wrapper">
+      <Link to={'/'}>
+        <img src={logo} alt="hakims logo" className="header-logo"></img>
+      </Link>
+      <div className="header-searchbar">
+        <SearchBar query={text} onQueryChange={setText} />
+      </div>
+      <div className="header-buttons">
+        <div className="header-login-button">
+          <LogInButton />
         </div>
-        <div className="header-buttons">
-          <div className="header-login-button">
-            <LogInButton />
-          </div>
-          <div className="header-cart-button">
-            <CartButton />
-          </div>
+        <div className="header-cart-button">
+          <CartButton />
         </div>
       </div>
     </div>

@@ -1,12 +1,9 @@
 .main-page-wrapper {
+  max-width: 1200px;
+  min-width: 330px;
 }
 
 .main-page {
-  display: flex;
-  background-color: aqua;
-}
-
-.categories {
-  min-width: 200px;
-  background-color: blue;
+  display: grid;
+  grid-template-columns: 14rem auto;
 }

@@ -1,20 +1,17 @@
 .product-wrapper {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  max-width: 280px;
-  width: auto;
-  height: 250px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px rgb(255, 90, 90);
-  margin-top: 5px;
+  min-width: 0;
+  position: relative;
+  grid-row-gap: .5rem;
+  background: #fff;
+  border-radius: .625rem;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: .25rem;
+  row-gap: .5rem;
 }
 
 .product {
   text-align: center;
-  width: auto;
-  height: 250px;
-  /* background-color: aqua; */
 }
 
 .product h1 {
@@ -25,7 +22,6 @@
 .product h2 {
   height: 50px;
   font-size: 15px;
-  margin-top: -1rem;
 }
 
 .product h3 {
@@ -41,7 +37,5 @@
 
 .product-button {
   position: relative;
-  inset: -5px 0 0 0;
-  width: 12rem;
   padding: 0.5rem;
 }
