@@ -22,11 +22,19 @@ const cartSlice = createSlice({
           : [...state.shoppingCart, { ...item, qty: 1 }],
       };
     },
-  },
-});
+    ADD_QUANTITY: (state: any, action: any) => {
+      return {
+        ...state,
+        shoppingCart: state.shoppingCart.map((item: any) =>
+          item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item
+        ),
+      };
+    },
+  }, //end of reducers
+}); //end of cartSlice
 
 const store = configureStore({ reducer: cartSlice.reducer });
-export const { ADD_ITEM } = cartSlice.actions;
+export const { ADD_ITEM, ADD_QUANTITY } = cartSlice.actions;
 export { cartSlice, store };
 
 /* eslint-disable no-case-declarations */

@@ -4,22 +4,17 @@ import productData from '../../assets/data.json';
 import { useEffect } from 'react';
 import Product from '../../Product-Component/product-component';
 import { useDispatch } from 'react-redux';
-import { store, ADD_ITEM } from '../../Redux/reducers/cartReducer';
+import { store, ADD_ITEM } from '../../Redux/cartReducer';
 
 function ProductPage() {
-  const [query, setQuery] = useState('');
-  const [newsItems, setNewsItems] = useState([]);
+  // const [query, setQuery] = useState('');
+  // const [newsItems, setNewsItems] = useState([]);
 
-  useEffect(() => {
-    //Code from https://stackoverflow.com/questions/19269545/how-to-get-a-number-of-random-elements-from-an-array
-    const shuffled: any = [...productData].sort(() => 0.5 - Math.random()).slice(10);
-    setNewsItems(shuffled);
-  }, []);
-
-  // const dispatch = useDispatch()
-  // function AddItem(item: any) {
-  //   dispatch(ADD_ITEM(item))
-  // }
+  // useEffect(() => {
+  //   //Code from https://stackoverflow.com/questions/19269545/how-to-get-a-number-of-random-elements-from-an-array
+  //   const shuffled: any = [...productData].sort(() => 0.5 - Math.random()).slice(10);
+  //   setNewsItems(shuffled);
+  // }, []);
 
   return (
     <div className="product-page">
