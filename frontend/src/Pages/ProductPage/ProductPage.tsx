@@ -3,6 +3,8 @@ import { useState } from 'react';
 import productData from '../../assets/data.json';
 import { useEffect } from 'react';
 import Product from '../../Product-Component/product-component';
+import { useDispatch } from 'react-redux';
+import { store, ADD_ITEM } from '../../Redux/reducers/cartReducer';
 
 function ProductPage() {
   const [query, setQuery] = useState('');
@@ -14,16 +16,23 @@ function ProductPage() {
     setNewsItems(shuffled);
   }, []);
 
+  // const dispatch = useDispatch()
+  // function AddItem(item: any) {
+  //   dispatch(ADD_ITEM(item))
+  // }
+
   return (
     <div className="product-page">
       <div className="products">
         {productData.map((item) => {
           return (
             <Product
+              key={item.id}
               title={item.title}
               price={item.price}
               category={item.category}
               description={item.description}
+              AddItem={() => store.dispatch(ADD_ITEM(item))}
             />
           );
         })}

@@ -5,11 +5,13 @@ function Product({
   price,
   category,
   description,
+  AddItem,
 }: {
   title: string;
   price: string;
   category: string;
   description: string;
+  AddItem: any;
 }) {
   return (
     <div className="product-wrapper">
@@ -19,7 +21,9 @@ function Product({
         <h3>{category}</h3>
         <p>{description}</p>
       </div>
-      <button className="product-button">KÖP</button>
+      <button className="product-button" onClick={AddItem}>
+        KÖP
+      </button>
     </div>
   );
 }
