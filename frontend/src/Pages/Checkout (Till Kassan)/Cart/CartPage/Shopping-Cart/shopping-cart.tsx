@@ -12,6 +12,8 @@ import {
 function ShoppingCartPage({ cart }: { cart: [] }) {
   const [totalPrice, setTotalPrice] = useState(0);
 
+  // useEffect(() => {}, [cart]);
+
   return (
     <div className="shopping-cart-page">
       <h1>Dina Varor</h1>
@@ -20,12 +22,13 @@ function ShoppingCartPage({ cart }: { cart: [] }) {
         {cart.map((item: any) => {
           return (
             <ItemSummary
+              key={item.id}
               title={item.title}
               price={item.price}
-              IncreaseQuantity={() => store.dispatch(ADD_QUANTITY(item.quantity + 1))}
-              quantity={item.quantity}
-              DecreaseQuantity={() => store.dispatch(DECREASE_QUANTITY(item.quantity - 1))}
-              RemoveFromCart={() => store.dispatch(REMOVE_FROM_CART)}
+              IncreaseQuantity={() => store.dispatch(ADD_QUANTITY(item))}
+              quantity={item.qty}
+              DecreaseQuantity={() => store.dispatch(DECREASE_QUANTITY(item))}
+              RemoveFromCart={() => store.dispatch(REMOVE_FROM_CART(item))}
             />
           );
         })}

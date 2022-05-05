@@ -12,15 +12,22 @@ const cartSlice = createSlice({
       const inCart = state.shoppingCart.find((item: any) =>
         item.id === action.payload.id ? true : false
       );
-      return {
-        //If item is already in cart, add + 1 qty. If not, add item to shoppingCart
-        ...state,
-        shoppingCart: inCart
-          ? state.shoppingCart.map((item: any) =>
-              item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item
-            )
-          : [...state.shoppingCart, { ...item, qty: 1 }],
-      };
+      if (inCart) {
+        const returned = Object.assign({ ...item, qty: item.qty + 1 });
+        console.log(returned);
+        //add qty to item
+      } else {
+        state.shoppingCart.push(item);
+      }
+      //   return {
+      //     //If item is already in cart, add + 1 qty. If not, add item to shoppingCart
+      //     ...state,
+      //     shoppingCart: inCart
+      //       ? state.shoppingCart.map((item: any) =>
+      //           item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item
+      //         )
+      //       : [...state.shoppingCart, { ...item, qty: 1 }],
+      //   };
     },
     ADD_QUANTITY: (state: any, action: any) => {
       return {

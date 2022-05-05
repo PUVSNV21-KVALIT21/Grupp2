@@ -17,12 +17,20 @@ function ItemSummary({
 }) {
   return (
     <div className="item-summary-wrapper">
-      <h1>{title}</h1>
-      <h2>{price} kr</h2>
-      <button onClick={IncreaseQuantity}></button>
-      <h3>{quantity}</h3>
-      <button onClick={DecreaseQuantity}></button>
-      <button onClick={RemoveFromCart}></button>
+      <div className="item">
+        <h1>{title}</h1>
+        <h2>{price} kr</h2>
+        <button id="increase-qty" onClick={IncreaseQuantity}>
+          +
+        </button>
+        <h3>{quantity}</h3>
+        <button id="decrease-qty" onClick={DecreaseQuantity}>
+          -
+        </button>
+        <button id="remove-from-cart" onClick={RemoveFromCart}>
+          X
+        </button>
+      </div>
     </div>
   );
 }
