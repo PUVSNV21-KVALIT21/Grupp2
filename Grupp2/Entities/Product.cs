@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Grupp2.Entities
 {
@@ -16,5 +17,7 @@ namespace Grupp2.Entities
         public string Description { get; set; }
         public Category Category { get; set; }
         public Discount? Discount { get; set; }
+        [DisplayName("Nyhetsprodukt")]
+        public bool IsNewsProduct { get; set; }
     }
 }

@@ -8,25 +8,28 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Grupp2.Data;
 using Grupp2.Entities;
+using Grupp2.Services;
 
 namespace Grupp2.Controllers
 {
-    public class AdminController : Controller
+    public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _database;
+        private readonly CategoryService _categoryService;
 
-        public AdminController(ApplicationDbContext database)
+        public ProductsController(ApplicationDbContext database, CategoryService categoryService)
         {
             _database = database;
+            _categoryService = categoryService;
         }
 
-        // GET: Admin
+        // GET: Products
         public async Task<IActionResult> Index()
         {
             return View(await _database.Products.ToListAsync());
         }
 
-        // GET: Admin/Details/5
+        // GET: Products/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -44,16 +47,20 @@ namespace Grupp2.Controllers
             return View(product);
         }
 
-        // GET: Admin/Create
-        public IActionResult Create()
+        // GET: Products/Create
+        public async Task <IActionResult> Create()
         {
+            var categories = await _categoryService.GetCategories();
+            ViewBag.Categories = new SelectList(categories, "Id", "Name");
             return View();
         }
 
-        // POST: Admin/Create
+        // POST: Products/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,Description")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,Description,IsNewsProduct,Category")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +72,7 @@ namespace Grupp2.Controllers
             return View(product);
         }
 
-        // GET: Admin/Edit/5
+        // GET: Products/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -78,13 +85,18 @@ namespace Grupp2.Controllers
             {
                 return NotFound();
             }
+            var categories = await _categoryService.GetCategories();
+            ViewBag.Categories = new SelectList(categories, "Id", "Name");
+            
             return View(product);
         }
 
-        // POST: Admin/Edit/5
+        // POST: Products/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Price,Description")] Product product)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Price,Description,IsNewsProduct,Category")] Product product)
         {
             if (id != product.Id)
             {
@@ -114,7 +126,7 @@ namespace Grupp2.Controllers
             return View(product);
         }
 
-        // GET: Admin/Delete/5
+        // GET: Products/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -132,7 +144,7 @@ namespace Grupp2.Controllers
             return View(product);
         }
 
-        // POST: Admin/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)

@@ -1,27 +1,22 @@
 ﻿@model IEnumerable<Grupp2.Entities.Product>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista";
 }
 
-<h1>Admin sida</h1>
+<h1>Produktlista</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Skapa ny produkt</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
+            <th>Namn</th>
+            <th>Pris</th>
+            <th>Beskrivning</th>
+            <th>Är nyhetsprodukt?</th>
+            <th>Kategori</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +30,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.IsNewsProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
