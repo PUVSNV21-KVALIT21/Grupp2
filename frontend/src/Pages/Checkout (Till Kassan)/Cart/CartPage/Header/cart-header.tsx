@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/graphics/Logonobackground.svg';
+import logo from '../../../../../assets/graphics/Logonobackground.svg';
 import './cart-header-style.css';
 
 function CartHeader() {
