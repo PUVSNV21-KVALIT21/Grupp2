@@ -4,14 +4,14 @@
     ViewData["Title"] = "Lista";
 }
 
-<h1>Produktlista</h1>
+<h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Skapa ny produkt</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
+         <tr>
             <th>Namn</th>
             <th>Pris</th>
             <th>Beskrivning</th>
@@ -32,7 +32,7 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.CheckBoxFor(modelItem => item.IsNewsProduct)
+                @Html.DisplayFor(modelItem => item.IsNewsProduct)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Category.Name)

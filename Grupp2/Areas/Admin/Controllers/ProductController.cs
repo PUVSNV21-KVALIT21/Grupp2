@@ -9,27 +9,32 @@ using Microsoft.EntityFrameworkCore;
 using Grupp2.Data;
 using Grupp2.Entities;
 using Grupp2.Services;
+using Microsoft.AspNetCore.Authorization;
 
-namespace Grupp2.Controllers
+namespace Grupp2.Areas.Admin.Controllers
 {
-    public class ProductsController : Controller
+    [Area("Admin")]
+    [Authorize(Roles = "Admin")]
+    public class ProductController : Controller
     {
-        private readonly ApplicationDbContext _database;
+        private readonly ApplicationDbContext _context;
         private readonly CategoryService _categoryService;
 
-        public ProductsController(ApplicationDbContext database, CategoryService categoryService)
+
+        public ProductController(ApplicationDbContext context, CategoryService categoryService)
         {
-            _database = database;
+            _context = context;
             _categoryService = categoryService;
+
         }
 
-        // GET: Products
+        // GET: Admin/Product
         public async Task<IActionResult> Index()
         {
-            return View(await _database.Products.ToListAsync());
+            return View(await _context.Products.ToListAsync());
         }
 
-        // GET: Products/Details/5
+        // GET: Admin/Product/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -37,7 +42,7 @@ namespace Grupp2.Controllers
                 return NotFound();
             }
 
-            var product = await _database.Products
+            var product = await _context.Products
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
@@ -47,15 +52,15 @@ namespace Grupp2.Controllers
             return View(product);
         }
 
-        // GET: Products/Create
-        public async Task <IActionResult> Create()
-        {
+        // GET: Admin/Product/Create
+        public async Task<IActionResult> Create()
+        { 
             var categories = await _categoryService.GetCategories();
             ViewBag.Categories = new SelectList(categories, "Id", "Name");
             return View();
         }
 
-        // POST: Products/Create
+        // POST: Admin/Product/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,15 +69,20 @@ namespace Grupp2.Controllers
         {
             if (ModelState.IsValid)
             {
+                var categoryRequestSelectedItem = Request.Form["category-select-list"];
+                var categoreis = await _categoryService.GetCategories();
+                var selectedCategory = categoreis.Where(c => c.Id.ToString() == categoryRequestSelectedItem.ToString()).FirstOrDefault();
+                product.Category = selectedCategory;
                 product.Id = Guid.NewGuid();
-                _database.Add(product);
-                await _database.SaveChangesAsync();
+                //product.Category = categories.Where(c => c.Id == product.Category.Id);
+                _context.Add(product);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
         }
 
-        // GET: Products/Edit/5
+        // GET: Admin/Product/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -80,18 +90,18 @@ namespace Grupp2.Controllers
                 return NotFound();
             }
 
-            var product = await _database.Products.FindAsync(id);
+            var product = await _context.Products.FindAsync(id);
             if (product == null)
             {
                 return NotFound();
             }
             var categories = await _categoryService.GetCategories();
             ViewBag.Categories = new SelectList(categories, "Id", "Name");
-            
+
             return View(product);
         }
 
-        // POST: Products/Edit/5
+        // POST: Admin/Product/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -107,8 +117,12 @@ namespace Grupp2.Controllers
             {
                 try
                 {
-                    _database.Update(product);
-                    await _database.SaveChangesAsync();
+                    var categoryRequestSelectedItem = Request.Form["category-select-list"];
+                    var categoreis = await _categoryService.GetCategories();
+                    var selectedCategory = categoreis.Where(c => c.Id.ToString() == categoryRequestSelectedItem.ToString()).FirstOrDefault();
+                    product.Category = selectedCategory;
+                    _context.Update(product);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -126,7 +140,7 @@ namespace Grupp2.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        // GET: Admin/Product/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -134,7 +148,7 @@ namespace Grupp2.Controllers
                 return NotFound();
             }
 
-            var product = await _database.Products
+            var product = await _context.Products
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
@@ -144,20 +158,20 @@ namespace Grupp2.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
+        // POST: Admin/Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var product = await _database.Products.FindAsync(id);
-            _database.Products.Remove(product);
-            await _database.SaveChangesAsync();
+            var product = await _context.Products.FindAsync(id);
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductExists(Guid id)
         {
-            return _database.Products.Any(e => e.Id == id);
+            return _context.Products.Any(e => e.Id == id);
         }
     }
 }

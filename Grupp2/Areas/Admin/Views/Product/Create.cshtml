@@ -1,18 +1,17 @@
 ﻿@model Grupp2.Entities.Product
 
 @{
-    ViewData["Title"] = "Ändra";
+    ViewData["Title"] = "Skapa ny produkt";
 }
 
-<h1>Ändra på produkt</h1>
+<h1>Create</h1>
 
-<h4>Produkt</h4>
+<h4>Product</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -28,27 +27,30 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label>
-                    @Html.CheckBoxFor(x => x.IsNewsProduct)
-                    Är produkten nyhet?
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsNewsProduct" /> @Html.DisplayNameFor(model => model.IsNewsProduct)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <select asp-for="Category" class="form-control" asp-items="@ViewBag.Categories"></select>
-                  <span asp-validation-for="Category" class="text-danger"></span>
+                <label asp-for="Category" class="control-label">Kategori</label>
+                <select class="form-control" name="category-select-list" asp-for="Category">
+                    @foreach (var x in ((IEnumerable<SelectListItem>)ViewBag.Categories))
+                    {
+                        <option value="@x.Value">@x.Text</option>
+                    }
+                </select>
+                <span asp-validation-for="Category" class="text-danger"></span>
             </div>
-
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">TIllbaka till produktlistan</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
