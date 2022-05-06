@@ -2,6 +2,7 @@ import './item-summary-component-style.css';
 
 function ItemSummary({
   title,
+  totalPrice,
   price,
   IncreaseQuantity,
   quantity,
@@ -9,6 +10,7 @@ function ItemSummary({
   RemoveFromCart,
 }: {
   title: string;
+  totalPrice: number;
   price: number;
   IncreaseQuantity: () => void;
   quantity: number;
@@ -19,7 +21,8 @@ function ItemSummary({
     <div className="item-summary-wrapper">
       <div className="item">
         <h1>{title}</h1>
-        <h2>{price} kr</h2>
+        <h2>{totalPrice}</h2>
+        <h3>{price} kr</h3>
         <button id="increase-qty" onClick={IncreaseQuantity}>
           +
         </button>
