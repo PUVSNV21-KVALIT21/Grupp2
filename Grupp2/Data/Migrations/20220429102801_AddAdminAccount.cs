@@ -35,7 +35,7 @@ namespace Grupp2.Data.Migrations
             sb.AppendLine(", 0");
             sb.AppendLine(", 0");
             sb.AppendLine(", 0");
-            sb.AppendLine(",'ADMIN@TECHTREE.CO.UK'");
+            sb.AppendLine(",''ADMIN@HAKIMLIVS.se'");
             sb.AppendLine($", '{passwordHash}'");
             sb.AppendLine(", ''");
             sb.AppendLine(",'Admin'");
