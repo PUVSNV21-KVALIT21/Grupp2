@@ -19,19 +19,21 @@ function ItemSummary({
 }) {
   return (
     <div className="item-summary-wrapper">
+      <button id="remove-from-cart" onClick={RemoveFromCart}>
+        X
+      </button>
       <div className="item">
-        <h1>{title}</h1>
-        <h2>{totalPrice}</h2>
-        <h3>{price} kr</h3>
+        <h3>{title}</h3>
+        <span>{totalPrice}</span>
+        <span>{price} kr</span>
+      </div>
+      <div className="item-action">
         <button id="increase-qty" onClick={IncreaseQuantity}>
           +
         </button>
         <h3>{quantity}</h3>
         <button id="decrease-qty" onClick={DecreaseQuantity}>
           -
-        </button>
-        <button id="remove-from-cart" onClick={RemoveFromCart}>
-          X
         </button>
       </div>
     </div>

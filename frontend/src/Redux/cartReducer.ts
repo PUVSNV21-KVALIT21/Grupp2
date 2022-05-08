@@ -55,6 +55,7 @@ const cartSlice = createSlice({
         shoppingCart: [],
       };
     },
+    
   }, //end of reducers
 }); //end of cartSlice
 

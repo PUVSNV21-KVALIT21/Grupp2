@@ -15,10 +15,10 @@ function ShoppingCartPage({ cart }: { cart: [] }) {
   // useEffect(() => {}, [cart]);
 
   return (
-    <div className="shopping-cart-page">
-      <h1>Dina Varor</h1>
+    <div>
+      <h2>Dina Varor</h2>
       <div className="items-in-shopping-cart">
-        item in shopping cart
+        <span>item in shopping cart</span>
         {cart.map((item: any) => {
           return (
             <ItemSummary
@@ -35,7 +35,6 @@ function ShoppingCartPage({ cart }: { cart: [] }) {
             />
           );
         })}
-        ;
       </div>
     </div>
   );

@@ -1,0 +1,37 @@
+.cart-summery {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-collection {
+  display: grid;
+  list-style-type: none;
+}
+
+.cart-item {
+  background-color: #fff;
+  border-top: 1px solid #ded7d7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 10px 0 10px;
+}
+.reduced-price {
+  color: #e02f2f;
+}
+.checkout {
+  position: relative;
+}
+.pay-button {
+  position: absolute;
+  padding: 10px 24px;
+  font-size: 28px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: #2fe041;
+  color: #fff;
+  margin-top: 15px;
+  right: 15px;
+}

@@ -1,32 +1,44 @@
 .item-summary-wrapper {
+  border-top: 1px solid #ac9a9a;
   background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 80% 1fr;
+  align-items: center;
+  justify-items: center;
 }
 
 .item {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-top: 1rem;
-  background-color: teal;
-  border: 1px solid black;
+  justify-self: start;
 }
 
 #increase-qty {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: yellow;
+  background-color: #ec7d7d;
+  color: #fff;
 }
 
 #decrease-qty {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: yellow;
+  background-color: #ec7d7d;
+  color: #fff;
 }
 
 #remove-from-cart {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: yellow;
+  background-color: #e02f2f;
+  color: #fff;
+}
+
+.item-action {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
 }

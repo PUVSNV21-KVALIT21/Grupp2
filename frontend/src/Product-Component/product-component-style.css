@@ -1,13 +1,24 @@
 .product-wrapper {
   min-width: 0;
   position: relative;
-  grid-row-gap: .5rem;
+  grid-row-gap: 0.5rem;
   background: #fff;
-  border-radius: .625rem;
+  border-radius: 0.625rem;
   display: grid;
   grid-template-rows: 1fr auto;
-  padding: .25rem;
-  row-gap: .5rem;
+  padding: 0.25rem;
+  row-gap: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 2px;
+}
+
+.product-button {
+  background-color: #2fe041;
+  border-radius: 5px;
+  width: 80px;
+  margin: 0 auto;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .product {
