@@ -1,0 +1,23 @@
+﻿@model List<Grupp2.Entities.Product>
+
+<div class="d-flex justify-content-center flex-wrap gap-2">
+
+    @foreach (var item in Model)
+    {
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.Category.ImageLink)" alt="Card image cap" />
+        <div class="card-body">
+            <p class="card-title">
+                @Html.DisplayFor(modelItem => item.Name)
+            </p>
+            <div class="mb-1">
+                <span>@Html.DisplayFor(modelItem => item.Name)</span> |
+                <span>@Html.DisplayFor(modelItem => item.Description) </span>
+                <span>@Html.DisplayFor(modelItem => item.Price)</span>
+            </div>
+            <a href="#" class="btn btn-primary">Lägg till kundvagn</a>
+        </div>
+    </div>
+    }
+
+</div>
