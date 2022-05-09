@@ -15,8 +15,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  height: 70px;
   padding: 0 10px 0 10px;
+  font-size: 18px;
 }
 .reduced-price {
   color: #e02f2f;
@@ -34,4 +35,13 @@
   color: #fff;
   margin-top: 15px;
   right: 15px;
+}
+
+.delivery {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#shipping {
+  margin-left: 1rem;
 }

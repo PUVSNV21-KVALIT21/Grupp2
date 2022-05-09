@@ -1,48 +1,89 @@
-import React, { Component } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import './cart-summery.css';
-class CartSummery extends Component {
-  render() {
-    return (
-      <div className="cart-summery">
-        <h2>Summa</h2>
-        <div className="cart-collection">
-          {/* Placeholders untill real code gets put in */}
-          <li className="cart-item">
-            <span>Summa varor</span>
-            <span>750,00 kr</span>
-          </li>
-          <li className="cart-item">
-            <label>
-              <input type="checkbox" ref="shipping" />
-              <span>Leverans?</span>
-            </label>
-          </li>
-          <li className="cart-item">
-            <span>Leverans</span>
-            <span>39,00 kr</span>
-          </li>
-          <li className="cart-item reduced-price">
-            <span>Avdrag</span>
-            <span>-0 kr</span>
-          </li>
-          <li className="cart-item">
-            <b>Totalt</b>
-            <b>789,00 kr</b>
-          </li>
-        </div>
-        <div className="checkout">
-          <button className="pay-button">Betala</button>
-        </div>
+import { Item, ShoppingCart } from '../../../../../../Models';
+
+function CartSummery({ cart }: { cart: [] }) {
+  const [itemTotalPrice, setItemTotalPrice] = useState(0);
+  const [deliveryPrice, setDeliveryPrice] = useState(0);
+
+  let price = 0;
+
+  const handleSelection = (event: any) => {
+    const deliveryWay = event.target.value;
+    if (deliveryWay === 'store-pickup') {
+      setDeliveryPrice(0);
+    } else {
+      setDeliveryPrice(39);
+    }
+  };
+
+  useEffect(() => {
+    cart.forEach((item: Item) => {
+      price += item.qty * item.price;
+    });
+    setItemTotalPrice(price);
+    handleSelection;
+  }, [cart]);
+
+  return (
+    <div className="cart-summery">
+      <h2>Summa</h2>
+      <div className="cart-collection">
+        <li className="cart-item">
+          <span>Summa varor</span>
+          {/* round total to two decimals */}
+          <span>{Math.round(itemTotalPrice * 100) / 100}</span>
+        </li>
+        <li className="cart-item">
+          <div className="delivery">
+            Välj leveranssätt:
+            <div>
+              <input
+                type="radio"
+                id="deliveryChoice1"
+                name="delivery-option"
+                value="delivery"
+                onChange={handleSelection}
+              />
+              <label htmlFor="deliveryChoice1">Leverans</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="deliveryChoice2"
+                name="delivery-option"
+                value="store-pickup"
+                onChange={handleSelection}
+              />
+              <label htmlFor="deliveryChoice2">Hämta i butik</label>
+            </div>
+          </div>
+        </li>
+        <li className="cart-item">
+          <span>Leverans</span>
+          <span>{deliveryPrice} kr</span>
+        </li>
+        {/* <li className="cart-item reduced-price">
+          <span>Avdrag</span>
+          <span>-0 kr</span>
+        </li> */}
+        <li className="cart-item">
+          <b>Totalt</b>
+          {/* round total to two decimals */}
+          <b>{Math.round((itemTotalPrice + deliveryPrice) * 100) / 100}</b>
+        </li>
       </div>
-    );
-  }
+      <div className="checkout">
+        <button className="pay-button">Betala</button>
+      </div>
+    </div>
+  );
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: ShoppingCart) => {
   return {
     cart: state.shoppingCart,
-    total: state.total,
   };
 };
 

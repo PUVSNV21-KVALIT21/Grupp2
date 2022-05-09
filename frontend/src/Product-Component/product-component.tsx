@@ -8,7 +8,7 @@ function Product({
   AddItem,
 }: {
   title: string;
-  price: string;
+  price: number;
   category: string;
   description: string;
   AddItem: any;
