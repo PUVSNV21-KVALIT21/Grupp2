@@ -17,7 +17,7 @@ function Product({
     <div className="product-wrapper">
       <div className="product">
         <h1>{title}</h1>
-        <h2>{price}</h2>
+        <h2>{price} kr</h2>
         <h3>{category}</h3>
         <p>{description}</p>
       </div>

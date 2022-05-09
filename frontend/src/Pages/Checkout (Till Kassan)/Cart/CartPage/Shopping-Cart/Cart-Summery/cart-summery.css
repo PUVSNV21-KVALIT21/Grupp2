@@ -45,6 +45,15 @@
   margin-bottom: 1rem;
 }
 
-#shipping {
-  margin-left: 1rem;
+#online-delivery,
+#pickup-in-store {
+  margin-left: 0.5rem;
+}
+
+#delivery-error-text,
+#empty-cart-error-text {
+  display: block;
+  position: relative;
+  top: 5rem;
+  color: red;
 }

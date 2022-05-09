@@ -7,6 +7,8 @@ function CartSummery({ cart }: { cart: [] }) {
   const [itemTotalPrice, setItemTotalPrice] = useState(0);
   const [deliveryPrice, setDeliveryPrice] = useState(0);
   const payBtn: any = useRef();
+  const deliveryText: any = useRef();
+  const noItemsText: any = useRef();
 
   let price = 0;
 
@@ -14,13 +16,23 @@ function CartSummery({ cart }: { cart: [] }) {
     console.log('handle selection');
     const deliveryWay = event.target.value;
     if (deliveryWay === 'store-pickup') {
-      setDeliveryPrice(0);
-      payBtn.current.style.opacity = '100%';
-      payBtn.current.style.pointerEvents = 'auto';
-    } else {
-      setDeliveryPrice(39);
-      payBtn.current.style.opacity = '100%';
-      payBtn.current.style.pointerEvents = 'auto';
+      deliveryText.current.style.display = 'none';
+
+      if (cart.length > 0) {
+        //make payment button clickable
+        setDeliveryPrice(0);
+        payBtn.current.style.opacity = '100%';
+        payBtn.current.style.pointerEvents = 'auto';
+      }
+    } else if (deliveryWay === 'delivery') {
+      deliveryText.current.style.display = 'none';
+
+      if (cart.length > 0) {
+        //make payment button clickable
+        setDeliveryPrice(39);
+        payBtn.current.style.opacity = '100%';
+        payBtn.current.style.pointerEvents = 'auto';
+      }
     }
   };
 
@@ -29,10 +41,22 @@ function CartSummery({ cart }: { cart: [] }) {
       price += item.qty * item.price;
     });
     setItemTotalPrice(price);
+    //make payment button unclickable before delivery way is selected
     payBtn.current.style.opacity = '50%';
     payBtn.current.style.pointerEvents = 'none';
+    noItemsText.current.style.display = 'none';
     handleSelection;
+    checkItemsInCart();
   }, [cart]);
+
+  const checkItemsInCart = () => {
+    if (cart.length === 0) {
+      //if the cart is emtpy, blank out the payment button
+      payBtn.current.style.opacity = '50%';
+      payBtn.current.style.pointerEvents = 'none';
+      noItemsText.current.style.display = 'block';
+    }
+  };
 
   return (
     <div className="cart-summery">
@@ -54,7 +78,9 @@ function CartSummery({ cart }: { cart: [] }) {
                 value="delivery"
                 onChange={handleSelection}
               />
-              <label htmlFor="deliveryChoice1">Leverans</label>
+              <label htmlFor="deliveryChoice1" id="online-delivery">
+                Leverans
+              </label>
             </div>
             <div>
               <input
@@ -64,7 +90,9 @@ function CartSummery({ cart }: { cart: [] }) {
                 value="store-pickup"
                 onChange={handleSelection}
               />
-              <label htmlFor="deliveryChoice2">Hämta i butik</label>
+              <label htmlFor="deliveryChoice2" id="pickup-in-store">
+                Hämta i butik
+              </label>
             </div>
           </div>
         </li>
@@ -87,6 +115,13 @@ function CartSummery({ cart }: { cart: [] }) {
           Betala
         </button>
       </div>
+      {/* error text to handle 0 items in cart and user not having selected delivery way  */}
+      <span id="delivery-error-text" ref={deliveryText}>
+        Välj leveranssätt för att gå vidare till betalning
+      </span>
+      <span id="empty-cart-error-text" ref={noItemsText}>
+        Lägg till varor för att gå vidare till betalning
+      </span>
     </div>
   );
 }
