@@ -24,8 +24,8 @@ function ItemSummary({
       </button>
       <div className="item">
         <h3>{title}</h3>
-        <span>{totalPrice}</span>
-        <span>{price} kr</span>
+        <span>Enhetspris: {price} kr</span>
+        <span>Totalpris: {totalPrice} kr</span>
       </div>
       <div className="item-action">
         <button id="increase-qty" onClick={IncreaseQuantity}>
