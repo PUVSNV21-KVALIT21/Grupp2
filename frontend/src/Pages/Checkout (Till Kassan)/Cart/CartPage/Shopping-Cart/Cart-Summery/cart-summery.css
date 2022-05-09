@@ -19,12 +19,15 @@
   padding: 0 10px 0 10px;
   font-size: 18px;
 }
+
 .reduced-price {
   color: #e02f2f;
 }
+
 .checkout {
   position: relative;
 }
+
 .pay-button {
   position: absolute;
   padding: 10px 24px;

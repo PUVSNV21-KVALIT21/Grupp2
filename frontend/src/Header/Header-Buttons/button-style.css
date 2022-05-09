@@ -34,3 +34,23 @@
 .header-buttons .button {
   background-color: #fff;
 }
+
+.cart-button {
+  position: relative;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  inset: -4rem 0 0 5rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: black;
+  border-radius: 50%;
+}
+
+#counter {
+  color: white;
+}

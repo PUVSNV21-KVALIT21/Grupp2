@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import './cart-summery.css';
 import { Item, ShoppingCart } from '../../../../../../Models';
@@ -6,15 +6,21 @@ import { Item, ShoppingCart } from '../../../../../../Models';
 function CartSummery({ cart }: { cart: [] }) {
   const [itemTotalPrice, setItemTotalPrice] = useState(0);
   const [deliveryPrice, setDeliveryPrice] = useState(0);
+  const payBtn: any = useRef();
 
   let price = 0;
 
   const handleSelection = (event: any) => {
+    console.log('handle selection');
     const deliveryWay = event.target.value;
     if (deliveryWay === 'store-pickup') {
       setDeliveryPrice(0);
+      payBtn.current.style.opacity = '100%';
+      payBtn.current.style.pointerEvents = 'auto';
     } else {
       setDeliveryPrice(39);
+      payBtn.current.style.opacity = '100%';
+      payBtn.current.style.pointerEvents = 'auto';
     }
   };
 
@@ -23,6 +29,8 @@ function CartSummery({ cart }: { cart: [] }) {
       price += item.qty * item.price;
     });
     setItemTotalPrice(price);
+    payBtn.current.style.opacity = '50%';
+    payBtn.current.style.pointerEvents = 'none';
     handleSelection;
   }, [cart]);
 
@@ -75,7 +83,9 @@ function CartSummery({ cart }: { cart: [] }) {
         </li>
       </div>
       <div className="checkout">
-        <button className="pay-button">Betala</button>
+        <button ref={payBtn} className="pay-button">
+          Betala
+        </button>
       </div>
     </div>
   );
