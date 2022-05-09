@@ -5,15 +5,14 @@
     @foreach (var item in Model)
     {
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.Category.ImageLink)" alt="Card image cap" />
+        <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.Category.ImageLink)" alt="@Html.DisplayFor(modelItem => item.Name)" />
         <div class="card-body">
             <p class="card-title">
                 @Html.DisplayFor(modelItem => item.Name)
             </p>
             <div class="mb-1">
-                <span>@Html.DisplayFor(modelItem => item.Name)</span> |
-                <span>@Html.DisplayFor(modelItem => item.Description) </span>
-                <span>@Html.DisplayFor(modelItem => item.Price)</span>
+                <span>@Html.DisplayFor(modelItem => item.Description) </span> |
+                <span>@Html.DisplayFor(modelItem => item.Price) Kr</span>
             </div>
             <a href="#" class="btn btn-primary">Lägg till kundvagn</a>
         </div>
