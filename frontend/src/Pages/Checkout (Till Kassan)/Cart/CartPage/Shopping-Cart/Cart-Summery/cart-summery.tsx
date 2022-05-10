@@ -14,8 +14,12 @@ function CartSummery({ cart }: { cart: [] }) {
   let price = 0;
 
   const handleSelection = (event: any) => {
-    console.log('handle selection');
+    //make payment button unclickable before delivery way is selected
+    payBtn.current.style.opacity = '50%';
+    payBtn.current.style.pointerEvents = 'none';
+
     const deliveryWay = event.target.value;
+
     if (deliveryWay === 'store-pickup') {
       deliveryText.current.style.display = 'none';
       setDeliveryPrice(0);
@@ -42,10 +46,6 @@ function CartSummery({ cart }: { cart: [] }) {
       price += item.qty * item.price;
     });
     setItemTotalPrice(price);
-    //make payment button unclickable before delivery way is selected
-    payBtn.current.style.opacity = '50%';
-    payBtn.current.style.pointerEvents = 'none';
-    noItemsText.current.style.display = 'none';
     handleSelection;
     checkItemsInCart();
   }, [cart]);
@@ -56,6 +56,8 @@ function CartSummery({ cart }: { cart: [] }) {
       payBtn.current.style.opacity = '50%';
       payBtn.current.style.pointerEvents = 'none';
       noItemsText.current.style.display = 'block';
+    } else {
+      noItemsText.current.style.display = 'none';
     }
   };
 

@@ -33,7 +33,7 @@ function Receipt({ cart }: { cart: [] }) {
         <button id="download-receipt-btn">Download receipt</button>
         <Link to={'/'}>
           <button id="ctn-shopping-btn" onClick={() => store.dispatch(RESET())}>
-            Continue Shopping
+            Close
           </button>
         </Link>
       </div>
