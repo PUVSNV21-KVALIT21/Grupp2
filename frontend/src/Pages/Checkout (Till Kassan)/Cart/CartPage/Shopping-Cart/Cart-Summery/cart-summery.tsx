@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import './cart-summery.css';
 import { Item, ShoppingCart } from '../../../../../../Models';
+import { Link } from 'react-router-dom';
 
 function CartSummery({ cart }: { cart: [] }) {
   const [itemTotalPrice, setItemTotalPrice] = useState(0);
@@ -65,7 +66,7 @@ function CartSummery({ cart }: { cart: [] }) {
         <li className="cart-item">
           <span>Summa varor</span>
           {/* round total to two decimals */}
-          <span>{Math.round(itemTotalPrice * 100) / 100}</span>
+          <span>{Math.round(itemTotalPrice * 100) / 100} kr</span>
         </li>
         <li className="cart-item">
           <div className="delivery">
@@ -107,13 +108,15 @@ function CartSummery({ cart }: { cart: [] }) {
         <li className="cart-item">
           <b>Totalt</b>
           {/* round total to two decimals */}
-          <b>{Math.round((itemTotalPrice + deliveryPrice) * 100) / 100}</b>
+          <b>{Math.round((itemTotalPrice + deliveryPrice) * 100) / 100} kr</b>
         </li>
       </div>
       <div className="checkout">
-        <button ref={payBtn} className="pay-button">
-          Betala
-        </button>
+        <Link to={'/receipt'} ref={payBtn}>
+          <button ref={payBtn} className="pay-button">
+            Betala
+          </button>
+        </Link>
       </div>
       {/* error text to handle 0 items in cart and user not having selected delivery way  */}
       <span id="delivery-error-text" ref={deliveryText}>

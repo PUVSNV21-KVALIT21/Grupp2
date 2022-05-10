@@ -20,9 +20,9 @@
   font-size: 18px;
 }
 
-.reduced-price {
+/* .reduced-price {
   color: #e02f2f;
-}
+} */
 
 .checkout {
   position: relative;
@@ -38,6 +38,10 @@
   color: #fff;
   margin-top: 15px;
   right: 15px;
+}
+
+.pay-button:hover {
+  background-color: #10eb26;
 }
 
 .delivery {

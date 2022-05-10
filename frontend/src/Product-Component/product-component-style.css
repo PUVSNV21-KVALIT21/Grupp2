@@ -15,10 +15,20 @@
 .product-button {
   background-color: #2fe041;
   border-radius: 5px;
-  width: 80px;
+  min-width: 5rem;
+  width: 10rem;
   margin: 0 auto;
   color: #fff;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.product-button:hover {
+  background-color: #0a9a18;
+}
+
+#category-link {
+  text-decoration: none;
+  color: rgb(192, 78, 97);
 }
 
 .product {

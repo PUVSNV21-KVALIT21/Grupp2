@@ -20,6 +20,13 @@
   color: #fff;
 }
 
+#count {
+  text-align: center;
+  width: 2rem;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 #decrease-qty {
   width: 30px;
   height: 30px;
@@ -31,12 +38,18 @@
 #remove-from-cart {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  background-color: #e02f2f;
-  color: #fff;
+}
+
+#remove-from-cart-image {
+  position: relative;
+  top: 2px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .item-action {
+  position: relative;
+  right: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
