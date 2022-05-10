@@ -1,4 +1,6 @@
 .button {
+  position: relative;
+  inset: 1rem 0 0 0;
   width: 100px;
   height: 60px;
   border-radius: 10px;
@@ -44,7 +46,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  inset: -4rem 0 0 5rem;
+  inset: -3rem 0 0 5rem;
   width: 2rem;
   height: 2rem;
   background-color: black;

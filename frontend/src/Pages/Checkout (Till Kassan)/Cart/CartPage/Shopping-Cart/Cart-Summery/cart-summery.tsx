@@ -17,19 +17,19 @@ function CartSummery({ cart }: { cart: [] }) {
     const deliveryWay = event.target.value;
     if (deliveryWay === 'store-pickup') {
       deliveryText.current.style.display = 'none';
+      setDeliveryPrice(0);
 
       if (cart.length > 0) {
         //make payment button clickable
-        setDeliveryPrice(0);
         payBtn.current.style.opacity = '100%';
         payBtn.current.style.pointerEvents = 'auto';
       }
     } else if (deliveryWay === 'delivery') {
       deliveryText.current.style.display = 'none';
+      setDeliveryPrice(39);
 
       if (cart.length > 0) {
         //make payment button clickable
-        setDeliveryPrice(39);
         payBtn.current.style.opacity = '100%';
         payBtn.current.style.pointerEvents = 'auto';
       }
