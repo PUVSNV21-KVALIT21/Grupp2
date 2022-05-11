@@ -3,6 +3,7 @@ using Grupp2.Models;
 using Grupp2.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using PagedList.Core;
 
 namespace Grupp2.Controllers
 {
@@ -18,9 +19,10 @@ namespace Grupp2.Controllers
             _productService = productService;
         }
 
-        public async Task <IActionResult> IndexAsync(string? productString, string? categoryString)
+        public async Task <JsonResult> IndexAsync(string? productString, string? categoryString, int? page)
         {
-
+            int pageNumber = (page ?? 1);
+            int pageSize = 10;
             if (!String.IsNullOrEmpty(productString))
             {
                 Products = await _productService.SearchProduct(productString);
@@ -33,7 +35,7 @@ namespace Grupp2.Controllers
             {
                 Products = await _productService.GetProducts();
             }
-            return View(Products);
+            return Json(Products.ToPagedList(pageNumber, pageSize));
         }
 
         public IActionResult Privacy()

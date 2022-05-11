@@ -1,22 +1,24 @@
-﻿@model List<Grupp2.Entities.Product>
-
+﻿@model PagedList.IPagedList<Grupp2.Entities.Product>
+@using System.Web;
+@using PagedList.Mvc;
 <div class="d-flex justify-content-center flex-wrap gap-2">
 
     @foreach (var item in Model)
     {
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.Category.ImageLink)" alt="@Html.DisplayFor(modelItem => item.Name)" />
-        <div class="card-body">
-            <p class="card-title">
-                @Html.DisplayFor(modelItem => item.Name)
-            </p>
-            <div class="mb-1">
-                <span>@Html.DisplayFor(modelItem => item.Description) </span> |
-                <span>@Html.DisplayFor(modelItem => item.Price) Kr</span>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.Category.ImageLink)" alt="@Html.DisplayFor(modelItem => item.Name)" />
+            <div class="card-body">
+                <p class="card-title">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </p>
+                <div class="mb-1">
+                    <span>@Html.DisplayFor(modelItem => item.Description) </span> |
+                    <span>@Html.DisplayFor(modelItem => item.Price) Kr</span>
+                </div>
+                <a href="#" class="btn btn-primary">Lägg till kundvagn</a>
             </div>
-            <a href="#" class="btn btn-primary">Lägg till kundvagn</a>
         </div>
-    </div>
     }
-
 </div>
+ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, pagePos => Url.Action("Index", new { page }))
