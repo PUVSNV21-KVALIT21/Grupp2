@@ -33,11 +33,11 @@ namespace Grupp2.Services
             return products;
         }
 
-        public async Task<IEnumerable<Product>> GetProductCategory(string category)
+        public async Task<IEnumerable<Product>> SearchByCategory(string category)
         {
             var products = await _database.Products
                     .Where(l =>
-                    l.Name.Contains(category))
+                    l.Category.Name.Contains(category))
                     .ToListAsync();
             return products;
         }

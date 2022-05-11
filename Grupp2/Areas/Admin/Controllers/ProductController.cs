@@ -31,7 +31,10 @@ namespace Grupp2.Areas.Admin.Controllers
         // GET: Admin/Product
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Products.ToListAsync());
+            var product = await _context.Products.ToArrayAsync();
+            var category = await _context.Categories.ToArrayAsync();
+
+            return View(product);
         }
 
         // GET: Admin/Product/Details/5
