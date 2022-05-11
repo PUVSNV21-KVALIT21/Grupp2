@@ -3,7 +3,7 @@ using Grupp2.Models;
 using Grupp2.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using PagedList.Core;
+using PagedList;
 
 namespace Grupp2.Controllers
 {
