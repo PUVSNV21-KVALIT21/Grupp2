@@ -37,10 +37,28 @@ namespace Grupp2.Controllers
             return products;
         }
 
-        [HttpGet("Category{category}")]
-        public async Task<IEnumerable> GetCategoryAsync()
+        [HttpGet("Category/{category}")]
+        public async Task<IEnumerable> GetProductsInCategoryAsync(string category)
         {
-            var products = await _productService.GetProducts();
+            var products = await _productService.SearchByCategory(category);
+            var categories = await _categoryService.GetCategories();
+
+            return products;
+        }
+
+        [HttpGet("Products/{search}")]
+        public async Task<IEnumerable> GetProductsFromSearchAsync(string search)
+        {
+            var products = await _productService.SearchProduct(search);
+            var categories = await _categoryService.GetCategories();
+
+            return products;
+        }
+
+        [HttpGet("Products/sort/{value}")]
+        public async Task<IEnumerable> GetSortProductsOnValueAsync(string value)
+        {
+            var products = await _productService.SearchProduct(value);
             var categories = await _categoryService.GetCategories();
 
             return products;
