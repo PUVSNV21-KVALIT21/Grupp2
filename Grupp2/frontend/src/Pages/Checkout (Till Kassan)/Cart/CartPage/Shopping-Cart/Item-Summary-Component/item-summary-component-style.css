@@ -1,0 +1,32 @@
+.item-summary-wrapper {
+  background-color: white;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 1rem;
+  background-color: teal;
+  border: 1px solid black;
+}
+
+#increase-qty {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: yellow;
+}
+
+#decrease-qty {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: yellow;
+}
+
+#remove-from-cart {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: yellow;
+}
