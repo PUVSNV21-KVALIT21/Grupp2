@@ -32,7 +32,7 @@ function ItemSummary({
         <button id="decrease-qty" onClick={DecreaseQuantity}>
           -
         </button>
-        <h3 id="count">{quantity}</h3>
+        <span id="count">{quantity}</span>
         <button id="increase-qty" onClick={IncreaseQuantity}>
           +
         </button>

@@ -1,4 +1,12 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage,
+};
 
 const state = { shoppingCart: [] };
 
@@ -55,11 +63,21 @@ const cartSlice = createSlice({
         shoppingCart: [],
       };
     },
-    
   }, //end of reducers
 }); //end of cartSlice
 
-const store = configureStore({ reducer: cartSlice.reducer });
+const persistedReducer = persistReducer(persistConfig, cartSlice.reducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
 export const { ADD_ITEM, ADD_QUANTITY, DECREASE_QUANTITY, REMOVE_FROM_CART, RESET } =
   cartSlice.actions;
 export { cartSlice, store };

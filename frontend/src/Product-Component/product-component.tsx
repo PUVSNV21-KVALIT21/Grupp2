@@ -19,7 +19,7 @@ function Product({
       <div className="product">
         <h1>{title}</h1>
         <h2>{price} kr</h2>
-        <Link id="category-link" to={'/' + category}>
+        <Link id="category-link" to={'/' + category.toLocaleLowerCase()}>
           <h3>{category}</h3>
         </Link>
         <p>{description}</p>
