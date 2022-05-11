@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import ItemSummary from './Item-Summary-Component/item-summary-component';
 import { connect } from 'react-redux';
 import './shopping-cart-page-style.css';
@@ -11,14 +10,6 @@ import {
 import { Item } from '../../../../../Models';
 
 function ShoppingCartPage({ cart }: { cart: [] }) {
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  useEffect(() => {
-    cart.forEach((item: Item) => {
-      setTotalPrice(item.qty * item.price);
-    });
-  }, [cart]);
-
   return (
     <div>
       <h2>Dina Varor</h2>
@@ -28,8 +19,8 @@ function ShoppingCartPage({ cart }: { cart: [] }) {
             <ItemSummary
               key={item.id}
               title={item.title}
-              totalPrice={totalPrice}
               price={item.price}
+              totalPrice={item.qty * item.price}
               IncreaseQuantity={() => store.dispatch(ADD_QUANTITY(item))}
               quantity={item.qty}
               DecreaseQuantity={() =>
