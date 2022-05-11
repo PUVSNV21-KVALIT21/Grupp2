@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Product from './ProductComponent/product-component';
 import { Item, ShoppingCart } from '../../Models';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { RESET, store } from '../../Redux/cartReducer';
 import logo from '../../assets/graphics/Logoredbackground.svg';
 import './receipt-style.css';
@@ -10,6 +10,7 @@ import './receipt-style.css';
 function Receipt({ cart }: { cart: [] }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [OCR, setOCR] = useState(0);
+  const ref: any = React.createRef();
 
   let price = 0;
   useEffect(() => {
@@ -27,17 +28,17 @@ function Receipt({ cart }: { cart: [] }) {
   }
 
   return (
-    <div>
+    <div className="receipt-wrapper">
       <div className="receipt-header">
         <h1>Tack för din beställning!</h1>
-        <button id="download-receipt-btn">Download receipt</button>
-        <Link to={'/'}>
+        <button id="download-receipt-btn">Ladda ner faktura</button>
+        <Link id="link-close" to={'/'}>
           <button id="ctn-shopping-btn" onClick={() => store.dispatch(RESET())}>
             Close
           </button>
         </Link>
       </div>
-      <div className="receipt">
+      <div className="receipt" ref={ref}>
         <img src={logo} alt="logo" id="logo"></img>
         <h2>Faktura</h2>
         <h3>
@@ -54,8 +55,14 @@ function Receipt({ cart }: { cart: [] }) {
         {cart.map((item: Item) => {
           return <Product key={item.id} qty={item.qty} title={item.title} price={item.price} />;
         })}
-        <h4 id="total-price">Total: {Math.round(totalPrice * 100) / 100} kr</h4>
-        <div className="ocr">
+
+        <div className="payment">
+          <h4 id="total-price-header">Summa: </h4>
+          <h4 id="total-price">{Math.round(totalPrice * 100) / 100} kr</h4>
+          <br />
+          <h4 id="ocr-header">Bankgiro: </h4>
+          <h4 id="ocr-number">1234-567</h4>
+          <br />
           <h4 id="ocr-header">OCR: </h4>
           <h4 id="ocr-number">{OCR}</h4>
         </div>

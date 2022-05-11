@@ -3,16 +3,16 @@ import trash from '../../../../../../assets/graphics/trash.svg';
 
 function ItemSummary({
   title,
-  totalPrice,
   price,
+  totalPrice,
   IncreaseQuantity,
   quantity,
   DecreaseQuantity,
   RemoveFromCart,
 }: {
   title: string;
-  totalPrice: number;
   price: number;
+  totalPrice: number;
   IncreaseQuantity: () => void;
   quantity: number;
   DecreaseQuantity: () => void;
