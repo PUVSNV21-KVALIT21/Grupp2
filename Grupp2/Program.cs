@@ -17,6 +17,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<ProductService>();
 
 var app = builder.Build();
 
