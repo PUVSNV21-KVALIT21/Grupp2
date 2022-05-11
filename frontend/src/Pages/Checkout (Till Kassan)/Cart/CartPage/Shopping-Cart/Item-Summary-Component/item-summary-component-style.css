@@ -33,6 +33,10 @@
   color: #fff;
 }
 
+#increase-qty:active {
+  transform: scale(0.98);
+}
+
 #count {
   text-align: center;
   width: 2rem;
@@ -47,6 +51,10 @@
   border-radius: 50%;
   background-color: #ec7d7d;
   color: #fff;
+}
+
+#decrease-qty:active {
+  transform: scale(0.98);
 }
 
 .item-action {

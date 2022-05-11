@@ -17,7 +17,6 @@ function CartSummery({ cart }: { cart: [] }) {
     //make payment button unclickable before delivery way is selected
     payBtn.current.style.opacity = '50%';
     payBtn.current.style.pointerEvents = 'none';
-
     const deliveryWay = event.target.value;
 
     if (deliveryWay === 'store-pickup') {
@@ -46,6 +45,7 @@ function CartSummery({ cart }: { cart: [] }) {
       price += item.qty * item.price;
     });
     setItemTotalPrice(price);
+
     handleSelection;
     checkItemsInCart();
   }, [cart]);
@@ -103,10 +103,6 @@ function CartSummery({ cart }: { cart: [] }) {
           <span>Leverans</span>
           <span>{deliveryPrice} kr</span>
         </li>
-        {/* <li className="cart-item reduced-price">
-          <span>Avdrag</span>
-          <span>-0 kr</span>
-        </li> */}
         <li className="cart-item">
           <b>Totalt</b>
           {/* round total to two decimals */}

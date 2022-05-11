@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 import { store } from './Redux/cartReducer';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
+import './assets/fonts/Roboto/Roboto-Black.ttf';
+import './assets/fonts/Montserrat/static/Montserrat-Black.ttf';
 
 const persistor = persistStore(store);
 

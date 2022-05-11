@@ -20,28 +20,8 @@
   font-size: 18px;
 }
 
-/* .reduced-price {
-  color: #e02f2f;
-} */
-
 .checkout {
   position: relative;
-}
-
-.pay-button {
-  position: absolute;
-  padding: 10px 24px;
-  font-size: 28px;
-  text-transform: uppercase;
-  border-radius: 10px;
-  background-color: #2fe041;
-  color: #fff;
-  margin-top: 15px;
-  right: 15px;
-}
-
-.pay-button:hover {
-  background-color: #10eb26;
 }
 
 .delivery {
@@ -60,4 +40,24 @@
   position: relative;
   top: 5rem;
   color: red;
+}
+
+.pay-button {
+  position: absolute;
+  padding: 10px 24px;
+  font-size: 28px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: #2fe041;
+  color: #fff;
+  margin-top: 15px;
+  right: 15px;
+}
+
+.pay-button:hover {
+  background-color: #10eb26;
+}
+
+.pay-button:active {
+  transform: scale(0.98);
 }
