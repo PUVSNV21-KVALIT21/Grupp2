@@ -42,7 +42,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseSpaStaticFiles(new StaticFileOptions { RequestPath = "/frontend/build" });
+app.UseSpaStaticFiles();
 
 app.UseRouting();
 
