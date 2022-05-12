@@ -21,6 +21,7 @@ function ItemSummary({
   RemoveFromCart: () => void;
 }) {
   return (
+
     <div className="item-summary">
       <button id="remove-from-cart" onClick={RemoveFromCart}>
         <img id="remove-from-cart-image" src={trash}></img>
