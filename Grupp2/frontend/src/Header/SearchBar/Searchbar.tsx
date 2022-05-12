@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './Searchbar-style.css';
 
+/* eslint-disable rule-name */
 function SearchBar({ query, onQueryChange }: { query: any; onQueryChange: any }) {
   const searchInput: any = useRef();
 
@@ -28,5 +29,6 @@ function SearchBar({ query, onQueryChange }: { query: any; onQueryChange: any })
     </form>
   );
 }
+/* eslint-disable rule-name */
 
 export default SearchBar;

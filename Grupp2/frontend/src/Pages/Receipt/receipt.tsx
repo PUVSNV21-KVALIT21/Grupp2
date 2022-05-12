@@ -7,6 +7,7 @@ import { RESET, store } from '../../Redux/cartReducer';
 import logo from '../../assets/graphics/Logoredbackground.svg';
 import './receipt-style.css';
 
+/* eslint-disable rule-name */
 function Receipt({ cart }: { cart: [] }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [OCR, setOCR] = useState(0);
@@ -76,5 +77,6 @@ const mapStateToProps = (state: ShoppingCart) => {
     cart: state.shoppingCart,
   };
 };
+/* eslint-disable rule-name */
 
 export default connect(mapStateToProps)(Receipt);

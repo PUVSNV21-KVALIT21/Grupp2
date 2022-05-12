@@ -4,6 +4,7 @@ import './cart-summery.css';
 import { Item, ShoppingCart } from '../../../../../../Models';
 import { Link } from 'react-router-dom';
 
+/* eslint-disable rule-name */
 function CartSummery({ cart }: { cart: [] }) {
   const [cartSum, setCartSum] = useState(0);
   const [deliveryPrice, setDeliveryPrice] = useState(0);
@@ -130,5 +131,6 @@ const mapStateToProps = (state: ShoppingCart) => {
     cart: state.shoppingCart,
   };
 };
+/* eslint-disable rule-name */
 
 export default connect(mapStateToProps)(CartSummery);

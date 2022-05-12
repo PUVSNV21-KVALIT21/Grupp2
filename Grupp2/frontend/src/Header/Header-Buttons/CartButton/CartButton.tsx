@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
 import { ShoppingCart } from '../../../Models';
 
+/* eslint-disable rule-name */
 function CartButton({ cart }: { cart: [] }) {
   const cartBtn: any = useRef();
   const [totalItems, setTotalItems] = useState(0);
@@ -38,6 +39,7 @@ function CartButton({ cart }: { cart: [] }) {
     </div>
   );
 }
+/* eslint-disable rule-name */
 
 const mapStateToProps = (state: ShoppingCart) => {
   return {
