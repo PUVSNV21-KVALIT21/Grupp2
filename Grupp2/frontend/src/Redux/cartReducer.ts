@@ -10,6 +10,7 @@ const persistConfig = {
 
 const state = { shoppingCart: [] };
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const cartSlice = createSlice({
   name: 'Shopping Cart',
   initialState: state,
@@ -65,6 +66,7 @@ const cartSlice = createSlice({
     },
   }, //end of reducers
 }); //end of cartSlice
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const persistedReducer = persistReducer(persistConfig, cartSlice.reducer);
 
