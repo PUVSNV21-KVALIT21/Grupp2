@@ -9,7 +9,7 @@ function CartHeader() {
         <img src={logo} alt="hakims logo" className="header-logo"></img>
       </Link>
       <Link to="/" className="keep-shopping">
-        <h1>Fortsätt shoppa</h1>
+        <span>Fortsätt shoppa</span>
       </Link>
     </div>
   );

@@ -2,38 +2,44 @@ import '../button-style.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
+import { ShoppingCart } from '../../../Models';
 
 function CartButton({ cart }: { cart: [] }) {
   const cartBtn: any = useRef();
   const [totalItems, setTotalItems] = useState(0);
 
+  let itemsTotal = 0;
   useEffect(() => {
-    let itemsTotal = 0;
-
     cart.forEach((item: any) => {
       itemsTotal += item.qty;
     });
 
     setTotalItems(itemsTotal);
 
-    // if (cart.length === 0) {
-    //   cartBtn.current.style.opacity = '70%';
-    //   cartBtn.current.style.pointerEvents = 'none';
-    // }
+    if (cart.length === 0) {
+      cartBtn.current.style.opacity = '50%';
+      cartBtn.current.style.pointerEvents = 'none';
+    } else {
+      cartBtn.current.style.opacity = '100%';
+      cartBtn.current.style.pointerEvents = 'auto';
+    }
   }, [cart, totalItems, setTotalItems]);
 
   return (
-    <div>
-      <Link to="/cart">
+    <div className="cart-button">
+      <Link to="/cart" ref={cartBtn}>
         <button ref={cartBtn} className="button" id="cart-button">
           <p>Till Kassan</p>
         </button>
       </Link>
+      <div className="counter">
+        <span id="counter">{totalItems}</span>
+      </div>
     </div>
   );
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: ShoppingCart) => {
   return {
     cart: state.shoppingCart,
   };

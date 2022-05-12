@@ -1,14 +1,13 @@
 import '../button-style.css';
-import { Link } from 'react-router-dom';
 
 function LogInButton() {
   return (
     <div>
-      <Link to={'/login'}>
+      <form action={'https://hakim-livs-test.azurewebsites.net/Identity/Account/Login'}>
         <button className="button" id="login-button">
           <p id="login-button-text">Logga In</p>
         </button>
-      </Link>
+      </form>
     </div>
   );
 }
