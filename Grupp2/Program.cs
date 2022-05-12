@@ -1,18 +1,29 @@
 using Grupp2.Data;
+using Grupp2.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("hakim-livs-testConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<ProductService>();
+
+builder.Services.AddSpaStaticFiles(configuration =>
+{
+    configuration.RootPath = "frontend";
+});
 
 var app = builder.Build();
 
@@ -30,15 +41,31 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSpaStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "Admin",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{action=Index}/{id?}");
+    app.MapRazorPages();
+});
 
+app.UseSpa(spa =>
+{
+    spa.Options.SourcePath = "frontend";
+
+    if (app.Environment.IsDevelopment())
+    {
+        spa.UseReactDevelopmentServer(npmScript: "start");
+    }
+});
 app.Run();

@@ -1,0 +1,63 @@
+.cart-summery {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-collection {
+  display: grid;
+  list-style-type: none;
+}
+
+.cart-item {
+  background-color: #fff;
+  border-top: 1px solid #ded7d7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 10px 0 10px;
+  font-size: 18px;
+}
+
+.checkout {
+  position: relative;
+}
+
+.delivery {
+  max-height: 4.9rem;
+  overflow-y: auto;
+}
+
+#online-delivery,
+#pickup-in-store {
+  margin-left: 0.5rem;
+}
+
+#delivery-error-text,
+#empty-cart-error-text {
+  display: block;
+  position: relative;
+  top: 5rem;
+  color: red;
+}
+
+.pay-button {
+  position: absolute;
+  padding: 10px 24px;
+  font-size: 28px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: #2fe041;
+  color: #fff;
+  margin-top: 15px;
+  right: 15px;
+}
+
+.pay-button:hover {
+  background-color: #10eb26;
+}
+
+.pay-button:active {
+  transform: scale(0.98);
+}

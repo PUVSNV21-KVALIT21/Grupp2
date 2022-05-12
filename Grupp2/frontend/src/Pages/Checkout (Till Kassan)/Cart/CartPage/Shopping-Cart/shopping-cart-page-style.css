@@ -1,0 +1,6 @@
+.shopping-cart-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 70% 1fr;
+  grid-column-gap: 15px;
+}
