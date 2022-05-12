@@ -1,6 +1,7 @@
 using Grupp2.Data;
 using Grupp2.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,12 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<ProductService>();
+
+builder.Services.AddSpaStaticFiles(configuration =>
+{
+    configuration.RootPath = "ClientApp/dist";
+});
 
 var app = builder.Build();
 
@@ -34,6 +41,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSpaStaticFiles();
 
 app.UseRouting();
 
@@ -51,4 +59,13 @@ app.UseEndpoints(endpoints =>
     app.MapRazorPages();
 });
 
+app.UseSpa(spa =>
+{
+    spa.Options.SourcePath = "frontend";
+
+    if (app.Environment.IsDevelopment())
+    {
+        spa.UseReactDevelopmentServer(npmScript: "start");
+    }
+});
 app.Run();

@@ -1,0 +1,12 @@
+.shopping-cart-page {
+  min-height: 500px;
+  width: auto;
+  height: auto;
+  background-color: blueviolet;
+}
+
+.items-in-shopping-cart {
+  min-height: 300px;
+  width: 700px;
+  background-color: grey;
+}
