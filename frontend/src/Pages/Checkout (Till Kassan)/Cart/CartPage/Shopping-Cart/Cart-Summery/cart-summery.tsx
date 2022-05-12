@@ -37,7 +37,6 @@ function CartSummery({ cart }: { cart: [] }) {
       payBtn.current.style.pointerEvents = 'none';
       noItemsText.current.style.display = 'block';
     } else if (cart.length > 0 && delivery) {
-      console.log('cart.length > 0 && delivery');
       payBtn.current.style.opacity = '100%';
       payBtn.current.style.pointerEvents = 'auto';
       noItemsText.current.style.display = 'none';
