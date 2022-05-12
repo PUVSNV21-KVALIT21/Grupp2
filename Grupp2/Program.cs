@@ -20,6 +20,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<ProductService>();
 
+// In production, the React files will be served from this directory
 builder.Services.AddSpaStaticFiles(configuration =>
 {
     configuration.RootPath = "frontend/build";
@@ -41,7 +42,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseSpaStaticFiles(new StaticFileOptions { RequestPath = "/frontend/build"});
+app.UseSpaStaticFiles(new StaticFileOptions { RequestPath = "/frontend/build" });
 
 app.UseRouting();
 
