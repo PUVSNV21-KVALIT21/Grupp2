@@ -22,7 +22,7 @@ builder.Services.AddScoped<ProductService>();
 
 builder.Services.AddSpaStaticFiles(configuration =>
 {
-    configuration.RootPath = "ClientApp/dist";
+    configuration.RootPath = "frontend";
 });
 
 var app = builder.Build();
@@ -55,7 +55,7 @@ app.UseEndpoints(endpoints =>
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
     app.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
+        pattern: "{action=Index}/{id?}");
     app.MapRazorPages();
 });
 
