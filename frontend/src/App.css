@@ -23,3 +23,13 @@ button {
   cursor: pointer;
   outline: inherit;
 }
+
+h1,
+h2,
+h3 {
+  font-family: 'Robotoblack';
+}
+
+p {
+  font-family: 'Montserratblack';
+}
