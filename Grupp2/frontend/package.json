@@ -28,9 +28,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:iis": "env-cmd -f .env.iis react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "cross-env CI=true react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/**/*.ts ./src/**/*.tsx"
   },
   "eslintConfig": {
     "extends": [
