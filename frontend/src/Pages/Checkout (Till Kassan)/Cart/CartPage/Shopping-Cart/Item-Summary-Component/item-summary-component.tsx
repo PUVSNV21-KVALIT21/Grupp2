@@ -3,6 +3,7 @@ import trash from '../../../../../../assets/graphics/trash.svg';
 
 function ItemSummary({
   title,
+  category,
   price,
   totalPrice,
   IncreaseQuantity,
@@ -11,6 +12,7 @@ function ItemSummary({
   RemoveFromCart,
 }: {
   title: string;
+  category: string;
   price: number;
   totalPrice: number;
   IncreaseQuantity: () => void;
@@ -19,22 +21,30 @@ function ItemSummary({
   RemoveFromCart: () => void;
 }) {
   return (
-    <div className="item-summary-wrapper">
+
+    <div className="item-summary">
       <button id="remove-from-cart" onClick={RemoveFromCart}>
         <img id="remove-from-cart-image" src={trash}></img>
       </button>
       <div className="item">
-        <h3>{title}</h3>
-        <span>Enhetspris: {price} kr</span>
-        <span>Totalpris: {totalPrice} kr</span>
+        <h1>{title}</h1>
+        <h2>{category}</h2>
+        <div className="price-section">
+          <h3>Enhetspris: </h3>
+          <h3 id="unit-price">{price} kr</h3>
+        </div>
+        <div className="price-section">
+          <h3>Summa: </h3>
+          <h3 id="total-unit-price">{totalPrice} kr</h3>
+        </div>
       </div>
       <div className="item-action">
-        <button id="decrease-qty" onClick={DecreaseQuantity}>
-          -
+        <button className="decrease-qty" onClick={DecreaseQuantity}>
+          <p>-</p>
         </button>
         <span id="count">{quantity}</span>
-        <button id="increase-qty" onClick={IncreaseQuantity}>
-          +
+        <button className="increase-qty" onClick={IncreaseQuantity}>
+          <p>+</p>
         </button>
       </div>
     </div>
