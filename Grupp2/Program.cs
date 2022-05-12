@@ -22,7 +22,7 @@ builder.Services.AddScoped<ProductService>();
 
 builder.Services.AddSpaStaticFiles(configuration =>
 {
-    configuration.RootPath = "frontend";
+    configuration.RootPath = "frontend/build";
 });
 
 var app = builder.Build();
