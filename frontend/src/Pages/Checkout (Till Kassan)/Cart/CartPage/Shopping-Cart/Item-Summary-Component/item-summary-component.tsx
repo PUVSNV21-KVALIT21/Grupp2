@@ -1,17 +1,18 @@
 import './item-summary-component-style.css';
+import trash from '../../../../../../assets/graphics/trash.svg';
 
 function ItemSummary({
   title,
-  totalPrice,
   price,
+  totalPrice,
   IncreaseQuantity,
   quantity,
   DecreaseQuantity,
   RemoveFromCart,
 }: {
   title: string;
-  totalPrice: number;
   price: number;
+  totalPrice: number;
   IncreaseQuantity: () => void;
   quantity: number;
   DecreaseQuantity: () => void;
@@ -19,19 +20,21 @@ function ItemSummary({
 }) {
   return (
     <div className="item-summary-wrapper">
+      <button id="remove-from-cart" onClick={RemoveFromCart}>
+        <img id="remove-from-cart-image" src={trash}></img>
+      </button>
       <div className="item">
-        <h1>{title}</h1>
-        <h2>{totalPrice}</h2>
-        <h3>{price} kr</h3>
-        <button id="increase-qty" onClick={IncreaseQuantity}>
-          +
-        </button>
-        <h3>{quantity}</h3>
+        <h3>{title}</h3>
+        <span>Enhetspris: {price} kr</span>
+        <span>Totalpris: {totalPrice} kr</span>
+      </div>
+      <div className="item-action">
         <button id="decrease-qty" onClick={DecreaseQuantity}>
           -
         </button>
-        <button id="remove-from-cart" onClick={RemoveFromCart}>
-          X
+        <span id="count">{quantity}</span>
+        <button id="increase-qty" onClick={IncreaseQuantity}>
+          +
         </button>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import ItemSummary from './Item-Summary-Component/item-summary-component';
 import { connect } from 'react-redux';
 import './shopping-cart-page-style.css';
@@ -8,24 +7,20 @@ import {
   DECREASE_QUANTITY,
   REMOVE_FROM_CART,
 } from '../../../../../Redux/cartReducer';
+import { Item } from '../../../../../Models';
 
 function ShoppingCartPage({ cart }: { cart: [] }) {
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  // useEffect(() => {}, [cart]);
-
   return (
-    <div className="shopping-cart-page">
-      <h1>Dina Varor</h1>
+    <div>
+      <h2>Dina Varor</h2>
       <div className="items-in-shopping-cart">
-        item in shopping cart
-        {cart.map((item: any) => {
+        {cart.map((item: Item) => {
           return (
             <ItemSummary
               key={item.id}
               title={item.title}
-              totalPrice={item.totalPrice}
               price={item.price}
+              totalPrice={item.qty * item.price}
               IncreaseQuantity={() => store.dispatch(ADD_QUANTITY(item))}
               quantity={item.qty}
               DecreaseQuantity={() =>
@@ -35,7 +30,6 @@ function ShoppingCartPage({ cart }: { cart: [] }) {
             />
           );
         })}
-        ;
       </div>
     </div>
   );

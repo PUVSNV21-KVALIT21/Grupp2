@@ -1,20 +1,20 @@
 .button {
+  position: relative;
+  inset: 1rem 0 0 0;
   width: 100px;
   height: 60px;
   border-radius: 10px;
-  box-shadow: 3px 3px 3px yellow;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.button:hover {
-  background-color: red;
-}
-
-.button p {
+.header-buttons .button p {
   font-size: 15px;
 }
 
-a {
+.header-buttons a,
+.header-buttons a:visited {
   text-decoration: none;
+  color: black;
 }
 
 #login-button {
@@ -31,4 +31,28 @@ a {
 
 #cart-button {
   margin-right: 2rem;
+}
+
+.header-buttons .button {
+  background-color: #fff;
+}
+
+.cart-button {
+  position: relative;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  inset: -3rem 0 0 5rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: black;
+  border-radius: 50%;
+}
+
+#counter {
+  color: white;
 }
