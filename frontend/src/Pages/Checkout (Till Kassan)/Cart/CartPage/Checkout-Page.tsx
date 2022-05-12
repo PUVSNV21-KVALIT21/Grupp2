@@ -1,12 +1,16 @@
 import CartHeader from './Header/cart-header';
+import CartSummery from './Shopping-Cart/Cart-Summery/cart-summery';
 import ShoppingCartPage from './Shopping-Cart/shopping-cart';
 
 function CheckoutPage() {
   return (
-    <div>
+    <>
       <CartHeader />
-      <ShoppingCartPage />
-    </div>
+      <div className="shopping-cart-page">
+        <ShoppingCartPage />
+        <CartSummery />
+      </div>
+    </>
   );
 }
 
