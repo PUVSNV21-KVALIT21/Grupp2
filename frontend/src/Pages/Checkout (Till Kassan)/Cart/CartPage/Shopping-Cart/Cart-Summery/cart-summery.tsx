@@ -5,61 +5,57 @@ import { Item, ShoppingCart } from '../../../../../../Models';
 import { Link } from 'react-router-dom';
 
 function CartSummery({ cart }: { cart: [] }) {
-  const [itemTotalPrice, setItemTotalPrice] = useState(0);
+  const [cartSum, setCartSum] = useState(0);
   const [deliveryPrice, setDeliveryPrice] = useState(0);
+  const [delivery, setDelivery] = useState(Boolean);
   const payBtn: any = useRef();
   const deliveryText: any = useRef();
   const noItemsText: any = useRef();
 
-  let price = 0;
-
-  const handleSelection = (event: any) => {
-    //make payment button unclickable before delivery way is selected
+  //Run once on mount
+  useEffect(() => {
     payBtn.current.style.opacity = '50%';
     payBtn.current.style.pointerEvents = 'none';
-    const deliveryWay = event.target.value;
+    deliveryText.current.style.display = 'block';
+    noItemsText.current.style.display = 'none';
+  }, []);
 
-    if (deliveryWay === 'store-pickup') {
-      deliveryText.current.style.display = 'none';
-      setDeliveryPrice(0);
-
-      if (cart.length > 0) {
-        //make payment button clickable
-        payBtn.current.style.opacity = '100%';
-        payBtn.current.style.pointerEvents = 'auto';
-      }
-    } else if (deliveryWay === 'delivery') {
-      deliveryText.current.style.display = 'none';
-      setDeliveryPrice(39);
-
-      if (cart.length > 0) {
-        //make payment button clickable
-        payBtn.current.style.opacity = '100%';
-        payBtn.current.style.pointerEvents = 'auto';
-      }
-    }
-  };
-
+  let totalPrice = 0;
+  //Run when cart- and delivery state is updated
   useEffect(() => {
     cart.forEach((item: Item) => {
-      price += item.qty * item.price;
+      totalPrice += item.qty * item.price;
     });
-    setItemTotalPrice(price);
+    setCartSum(totalPrice);
+    checkCart();
+  }, [cart, delivery]);
 
-    handleSelection;
-    checkItemsInCart();
-  }, [cart]);
-
-  const checkItemsInCart = () => {
+  function checkCart() {
     if (cart.length === 0) {
-      //if the cart is emtpy, blank out the payment button
       payBtn.current.style.opacity = '50%';
       payBtn.current.style.pointerEvents = 'none';
       noItemsText.current.style.display = 'block';
-    } else {
+    } else if (cart.length > 0 && delivery) {
+      console.log('cart.length > 0 && delivery');
+      payBtn.current.style.opacity = '100%';
+      payBtn.current.style.pointerEvents = 'auto';
       noItemsText.current.style.display = 'none';
     }
-  };
+  }
+
+  async function handleSelection(event: any) {
+    const deliveryWay = event.target.value;
+
+    if (deliveryWay) {
+      deliveryText.current.style.display = 'none';
+      await setDelivery(true);
+      if (deliveryWay === 'store-pickup') {
+        setDeliveryPrice(0);
+      } else if (deliveryWay === 'delivery') {
+        setDeliveryPrice(39);
+      }
+    }
+  }
 
   return (
     <div className="cart-summery">
@@ -68,7 +64,8 @@ function CartSummery({ cart }: { cart: [] }) {
         <li className="cart-item">
           <span>Summa varor</span>
           {/* round total to two decimals */}
-          <span>{Math.round(itemTotalPrice * 100) / 100} kr</span>
+          <span>{Math.round(cartSum * 100) / 100} kr</span>
+
         </li>
         <li className="cart-item">
           <div className="delivery">
@@ -106,7 +103,8 @@ function CartSummery({ cart }: { cart: [] }) {
         <li className="cart-item">
           <b>Totalt</b>
           {/* round total to two decimals */}
-          <b>{Math.round((itemTotalPrice + deliveryPrice) * 100) / 100} kr</b>
+          <b>{Math.round((cartSum + deliveryPrice) * 100) / 100} kr</b>
+
         </li>
       </div>
       <div className="checkout">

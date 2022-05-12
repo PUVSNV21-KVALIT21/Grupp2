@@ -19,6 +19,7 @@ function ShoppingCartPage({ cart }: { cart: [] }) {
             <ItemSummary
               key={item.id}
               title={item.title}
+              category={item.category}
               price={item.price}
               totalPrice={item.qty * item.price}
               IncreaseQuantity={() => store.dispatch(ADD_QUANTITY(item))}
