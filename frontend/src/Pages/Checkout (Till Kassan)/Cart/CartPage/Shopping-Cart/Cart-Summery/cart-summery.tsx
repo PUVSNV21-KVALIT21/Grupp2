@@ -64,7 +64,6 @@ function CartSummery({ cart }: { cart: [] }) {
           <span>Summa varor</span>
           {/* round total to two decimals */}
           <span>{Math.round(cartSum * 100) / 100} kr</span>
-
         </li>
         <li className="cart-item">
           <div className="delivery">
@@ -103,7 +102,6 @@ function CartSummery({ cart }: { cart: [] }) {
           <b>Totalt</b>
           {/* round total to two decimals */}
           <b>{Math.round((cartSum + deliveryPrice) * 100) / 100} kr</b>
-
         </li>
       </div>
       <div className="checkout">

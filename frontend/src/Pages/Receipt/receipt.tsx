@@ -30,7 +30,7 @@ function Receipt({ cart }: { cart: [] }) {
     <div className="receipt-wrapper">
       <div className="receipt-header">
         <h1>Tack för din beställning!</h1>
-        <button id="download-receipt-btn">Ladda ner faktura</button>
+        {/* <button id="download-receipt-btn">Ladda ner faktura</button> */}
         <Link id="link-close" to={'/'}>
           <button id="ctn-shopping-btn" onClick={() => store.dispatch(RESET())}>
             Close
