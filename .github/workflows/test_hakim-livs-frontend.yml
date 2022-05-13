@@ -23,7 +23,7 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          cd .\frontend\
+          cd .\Grupp2\frontend\
           npm install
           npm run build --if-present
           npm run test --if-present
@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: frontend\build
+          path: Grupp2\frontend\build
 
   deploy:
     runs-on: ubuntu-latest
