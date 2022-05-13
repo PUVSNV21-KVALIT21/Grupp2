@@ -7,7 +7,6 @@
   align-items: center;
   margin: 0 auto;
   max-width: 1000px;
-  width: auto;
   grid-template-columns: 3fr 1fr auto;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -107,13 +106,12 @@
 
 @media screen and (max-width: 521px) {
   .receipt-header {
-    width: 540px;
+    width: 440px;
     font-size: 12px;
   }
 
   #ctn-shopping-btn {
     position: relative;
-    right: 2rem;
     width: 7rem;
   }
 
@@ -123,7 +121,6 @@
 
   .receipt {
     position: relative;
-    left: 1rem;
     width: 440px;
   }
 
