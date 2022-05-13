@@ -1,4 +1,19 @@
 .main-page {
   display: grid;
+  margin: 0 auto;
   grid-template-columns: 14rem auto;
+  max-width: 1250px;
+}
+
+@media screen and (max-width: 521px) {
+  .main-page {
+    grid-template-columns: auto;
+    width: 540px;
+  }
+
+  .categories {
+    display: flex;
+    justify-content: center;
+    background-color: #f7f5f5;
+  }
 }
