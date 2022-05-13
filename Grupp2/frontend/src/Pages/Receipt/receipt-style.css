@@ -16,19 +16,6 @@
   border-radius: 10px;
 }
 
-#download-receipt-btn {
-  width: 11rem;
-  height: 4rem;
-  border: 1px solid black;
-  border-radius: 5px;
-  background-color: white;
-  font-size: 18px;
-}
-
-#download-receipt-btn:hover {
-  background-color: rgb(231, 114, 114);
-}
-
 #ctn-shopping-btn {
   width: 11rem;
   height: 4rem;
@@ -116,4 +103,40 @@
 #ocr-number {
   font-size: 20px;
   font-style: oblique;
+}
+
+@media screen and (max-width: 521px) {
+  .receipt-header {
+    width: 540px;
+    font-size: 12px;
+  }
+
+  #ctn-shopping-btn {
+    position: relative;
+    right: 2rem;
+    width: 7rem;
+  }
+
+  #logo {
+    height: 10rem;
+  }
+
+  .receipt {
+    position: relative;
+    left: 1rem;
+    width: 440px;
+  }
+
+  .headers {
+    display: grid;
+    margin: 0 auto;
+    max-width: 900px;
+    width: auto;
+    grid-template-columns: 1fr 2fr auto;
+  }
+
+  .receipt h2 {
+    position: relative;
+    left: 18.5rem;
+  }
 }

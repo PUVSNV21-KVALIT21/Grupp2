@@ -2,6 +2,7 @@ import './MainPage-style.css';
 import HeaderComponent from '../../Header/HeaderComponent/Header';
 import ProductPage from '../ProductPage/ProductPage';
 import Categories from '../Categories/Categories';
+import Footer from '../Footer/footer';
 
 function MainPage() {
   return (
@@ -15,6 +16,9 @@ function MainPage() {
         </div>
         <ProductPage />
       </div>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

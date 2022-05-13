@@ -20,9 +20,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<ProductService>();
 
+// In production, the React files will be served from this directory
 builder.Services.AddSpaStaticFiles(configuration =>
 {
-    configuration.RootPath = "ClientApp/dist";
+    configuration.RootPath = "frontend/build";
 });
 
 var app = builder.Build();
@@ -55,7 +56,7 @@ app.UseEndpoints(endpoints =>
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
     app.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
+        pattern: "{action=Index}/{id?}");
     app.MapRazorPages();
 });
 
