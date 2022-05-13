@@ -1,9 +1,9 @@
 import './productpage-style.css';
-import { useState } from 'react';
+//import { useState } from 'react';
 import productData from '../../assets/data.json';
-import { useEffect } from 'react';
+//import { useEffect } from 'react';
 import Product from '../../Product-Component/product-component';
-import { useDispatch } from 'react-redux';
+//import { useDispatch } from 'react-redux';
 import { store, ADD_ITEM } from '../../Redux/cartReducer';
 
 function ProductPage() {

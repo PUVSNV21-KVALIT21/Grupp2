@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './category-component-style.css';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 function CategoryComponent({ icon, category }: { icon: any; category: string }) {
   return (
     <div className="category-wrapper">
@@ -13,5 +14,6 @@ function CategoryComponent({ icon, category }: { icon: any; category: string }) 
     </div>
   );
 }
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export default CategoryComponent;
