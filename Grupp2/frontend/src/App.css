@@ -7,6 +7,10 @@
   background-color: #f7f5f5;
 }
 
+body {
+  background-color: #f7f5f5;
+}
+
 .App {
   margin: 0 auto;
   max-width: 1200px;
@@ -33,4 +37,3 @@ h3 {
 p {
   font-family: 'Montserratblack';
 }
-

@@ -89,3 +89,13 @@
 .social-media img {
   height: 2.5rem;
 }
+
+@media screen and (max-width: 520px) {
+  .footer-wrapper {
+    width: 540px;
+  }
+
+  .logo img {
+    height: 1.5rem;
+  }
+}

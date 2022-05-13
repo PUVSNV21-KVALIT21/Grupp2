@@ -4,3 +4,11 @@
   grid-template-columns: 70% 1fr;
   grid-column-gap: 15px;
 }
+
+@media screen and (max-width: 521px) {
+  .shopping-cart-page {
+    grid-template-columns: auto;
+    background-color: #f7f5f5;
+    width: 540px;
+  }
+}

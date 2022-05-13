@@ -38,3 +38,10 @@
 .keep-shopping::after {
   transform: rotate(-45deg);
 }
+
+@media screen and (max-width: 521px) {
+  .keep-shopping {
+    position: relative;
+    margin: 0 auto;
+  }
+}

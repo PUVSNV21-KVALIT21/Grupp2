@@ -2,3 +2,17 @@
   display: grid;
   grid-template-columns: 14rem auto;
 }
+
+@media screen and (max-width: 521px) {
+  .main-page {
+    grid-template-columns: auto;
+    background-color: rgb(221, 221, 221);
+    width: 540px;
+  }
+
+  .categories {
+    display: flex;
+    justify-content: center;
+    background-color: #f7f5f5;
+  }
+}

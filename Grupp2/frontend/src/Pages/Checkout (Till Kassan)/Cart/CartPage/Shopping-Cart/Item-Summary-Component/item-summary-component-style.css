@@ -90,3 +90,13 @@ p {
   font-size: 20px;
   color: #e02f2f;
 }
+
+@media screen and (max-width: 521px) {
+  .item-summary {
+    width: 540px;
+  }
+
+  .item-action {
+    right: 7rem;
+  }
+}
