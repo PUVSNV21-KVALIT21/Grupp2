@@ -1,12 +1,13 @@
 .main-page {
   display: grid;
+  margin: 0 auto;
   grid-template-columns: 14rem auto;
+  max-width: 1250px;
 }
 
 @media screen and (max-width: 521px) {
   .main-page {
     grid-template-columns: auto;
-    background-color: rgb(221, 221, 221);
     width: 540px;
   }
 

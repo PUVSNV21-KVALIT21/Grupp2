@@ -1,5 +1,7 @@
 .shopping-cart-page {
   min-height: 100vh;
+  max-width: 1250px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 70% 1fr;
   grid-column-gap: 15px;
