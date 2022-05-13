@@ -4,6 +4,7 @@ import './cart-summery.css';
 import { Item, ShoppingCart } from '../../../../../../Models';
 import { Link } from 'react-router-dom';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 function CartSummery({ cart }: { cart: [] }) {
   const [cartSum, setCartSum] = useState(0);
   const [deliveryPrice, setDeliveryPrice] = useState(0);
@@ -36,6 +37,7 @@ function CartSummery({ cart }: { cart: [] }) {
       payBtn.current.style.pointerEvents = 'none';
       noItemsText.current.style.display = 'block';
     } else if (cart.length > 0 && delivery) {
+      console.log('cart.length > 0 && delivery');
       payBtn.current.style.opacity = '100%';
       payBtn.current.style.pointerEvents = 'auto';
       noItemsText.current.style.display = 'none';
@@ -64,6 +66,7 @@ function CartSummery({ cart }: { cart: [] }) {
           <span>Summa varor</span>
           {/* round total to two decimals */}
           <span>{Math.round(cartSum * 100) / 100} kr</span>
+
         </li>
         <li className="cart-item">
           <div className="delivery">
@@ -102,6 +105,7 @@ function CartSummery({ cart }: { cart: [] }) {
           <b>Totalt</b>
           {/* round total to two decimals */}
           <b>{Math.round((cartSum + deliveryPrice) * 100) / 100} kr</b>
+
         </li>
       </div>
       <div className="checkout">
@@ -127,5 +131,6 @@ const mapStateToProps = (state: ShoppingCart) => {
     cart: state.shoppingCart,
   };
 };
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export default connect(mapStateToProps)(CartSummery);

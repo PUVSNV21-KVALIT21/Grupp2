@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
 import { ShoppingCart } from '../../../Models';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 function CartButton({ cart }: { cart: [] }) {
   const cartBtn: any = useRef();
   const [totalItems, setTotalItems] = useState(0);
@@ -38,6 +39,7 @@ function CartButton({ cart }: { cart: [] }) {
     </div>
   );
 }
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const mapStateToProps = (state: ShoppingCart) => {
   return {

@@ -36,10 +36,12 @@ function ShoppingCartPage({ cart }: { cart: [] }) {
   );
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const mapStateToProps = (state: any) => {
   return {
     cart: state.shoppingCart,
   };
 };
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export default connect(mapStateToProps)(ShoppingCartPage);
