@@ -28,7 +28,7 @@ namespace Grupp2.Services
         {
             var products = await _database.Products
                     .Where(l =>
-                    l.Name.Contains(search))
+                    l.Name.Contains(search.Trim(), StringComparison.OrdinalIgnoreCase))
                     .ToListAsync();
             return products;
         }
@@ -82,11 +82,15 @@ namespace Grupp2.Services
 
         public async Task<IEnumerable<Product>> SearchByCategory(string category)
         {
-            var products = await _database.Products
-                    .Where(l =>
-                    l.Category.Name.Contains(category))
-                    .ToListAsync();
-            return products;
+            if (category != null)
+            {
+                var products = await _database.Products
+                        .Where(l =>
+                        l.Category.Name.Contains(category))
+                        .ToListAsync();
+                return products;
+            }
+            return new List<Product>();
         }
     }
 }
