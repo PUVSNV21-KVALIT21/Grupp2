@@ -1,12 +1,26 @@
+export interface ShoppingCart {
+  shoppingCart: [];
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  imageLink: string;
+}
 export interface Item {
-  id: number;
-  title: string;
+  id: string;
+  name: string;
   price: number;
-  category: string;
   description: string;
+  category: Category;
+  discount: null;
+  isNewsProduct: boolean;
+}
+export interface CartItem extends Item{
   qty: number;
 }
 
-export interface ShoppingCart {
-  shoppingCart: [];
+export interface SearchParam {
+  sort: string;
+  ascending: boolean;
 }

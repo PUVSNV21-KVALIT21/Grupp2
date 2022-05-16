@@ -35,10 +35,24 @@
 	    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="frontend\src\Helper\ApiHelper.tsx" />
+      <None Remove="frontend\src\Helper\file - Copy.tsx" />
+      <None Remove="frontend\src\Helper\file.tsx" />
+    </ItemGroup>
+
   <ItemGroup>
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="frontend\src\Helper\ApiHelper.tsx" />
+    <TypeScriptCompile Include="frontend\src\Helper\file - Copy.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="frontend\src\Helper\file.tsx" />
   </ItemGroup>
 
 	<Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
