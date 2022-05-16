@@ -13,7 +13,7 @@ function CategoryComponent({
     <div className="category-wrapper">
       <Link id="category-link" to={'/category/' + category.replaceAll(' ', '+').toLocaleLowerCase()}>
         <li>
-          <img src={icon} alt={category}></img>
+          <img src={icon}></img>
           <h1>{category}</h1>
         </li>
       </Link>

@@ -31,12 +31,11 @@ function MainPage() {
     if (location.pathname.startsWith('/search')) {
       controller = 'products';
       query = location.search.split('?q=')[1];
-    } else if (location.pathname.startsWith('/category'))
-    {
+    } else if (location.pathname.startsWith('/category')) {
       const newUrl = url.split('/');
       controller = newUrl[1];
       query = newUrl[2];
-    } 
+    }
     console.log(url);
     console.log(controller);
     console.log(query);
@@ -44,7 +43,7 @@ function MainPage() {
     loadProducts(controller, query).then((newItems) => {
       setProducts(newItems);
     });
-    console.log(location.pathname);
+    setCategory({ id: '', name: controller, imageLink: '' });
   }, [location]);
 
   return (

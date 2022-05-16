@@ -7,19 +7,19 @@ import {
   DECREASE_QUANTITY,
   REMOVE_FROM_CART,
 } from '../../../../../Redux/cartReducer';
-import { Item } from '../../../../../Models';
+import { CartItem } from '../../../../../Models';
 
 function ShoppingCartPage({ cart }: { cart: [] }) {
   return (
     <div>
       <h2>Dina Varor</h2>
       <div className="items-in-shopping-cart">
-        {cart.map((item: Item) => {
+        {cart.map((item: CartItem) => {
           return (
             <ItemSummary
               key={item.id}
-              title={item.title}
-              category={item.category}
+              title={item.name}
+              // category={item.category.name}
               price={item.price}
               totalPrice={item.qty * item.price}
               IncreaseQuantity={() => store.dispatch(ADD_QUANTITY(item))}
