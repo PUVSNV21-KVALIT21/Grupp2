@@ -60,7 +60,7 @@ namespace Grupp2.Controllers
             var products = await _productService.SearchByCategory(category);
             var categories = await _categoryService.GetCategories();
 
-            return ProducktWithCategoryName(products);
+            return products;
         }
 
         [HttpGet("api/Products/{search}")]
@@ -69,7 +69,7 @@ namespace Grupp2.Controllers
             var products = await _productService.SearchProduct(search);
             var categories = await _categoryService.GetCategories();
 
-            return ProducktWithCategoryName(products);
+            return products;
         }
         
         [HttpGet("api/Products/news")]
