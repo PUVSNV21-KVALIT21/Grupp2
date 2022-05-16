@@ -28,7 +28,7 @@ namespace Grupp2.Services
         {
             var products = await _database.Products
                     .Where(l =>
-                    l.Name.Contains(search.Trim(), StringComparison.OrdinalIgnoreCase))
+                    l.Name.Contains(search))
                     .ToListAsync();
             return products;
         }
