@@ -16,7 +16,7 @@ export const getNewsArticles = async (): Promise<Item[]> => {
 };
 
 export const getCategoryProducts = async (query?: string): Promise<Item[]> => {
-  const response = await fetch(apiUrl + query?.replaceAll('+', ' '));
+  const response = await fetch(apiUrl + "category/" +  query?.replaceAll('+', ' '));
   console.log(response);
   return (await response.json()) as Item[];
 };

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import './cart-summery.css';
-import { Item, ShoppingCart } from '../../../../../../Models';
+import { CartItem, ShoppingCart } from '../../../../../../Models';
 import { Link } from 'react-router-dom';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -24,7 +24,7 @@ function CartSummery({ cart }: { cart: [] }) {
   let totalPrice = 0;
   //Run when cart- and delivery state is updated
   useEffect(() => {
-    cart.forEach((item: Item) => {
+    cart.forEach((item: CartItem) => {
       totalPrice += item.qty * item.price;
     });
     setCartSum(totalPrice);

@@ -14,15 +14,10 @@ async function loadProducts(controller: string, query: string, sort?: SearchPara
   let itemResp: Item[] = [];
   let resp: Item[];
   if (controller == 'category') {
-    console.log('kategori');
-    console.log(query);
-    console.log('hej');
     resp = await getCategoryProducts(query);
   } else if (controller == 'products') {
-    console.log('produkter');
     resp = await getSearchProducts(query);
   } else {
-    console.log('nyheter');
     resp = await getNewsArticles();
   }
   itemResp = resp;
@@ -41,9 +36,8 @@ function MainPage() {
       controller = 'products';
       query = location.search.split('?q=')[1];
     } else if (location.pathname.startsWith('/category')) {
-      const newUrl = url.split('/');
       controller = 'category';
-      query = newUrl[2];
+        query = location.search.split('?q=')[1];
     }
     console.log(url);
     console.log(controller);
