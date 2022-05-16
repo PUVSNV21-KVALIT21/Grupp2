@@ -22,9 +22,12 @@ function Product({
           <h2 id="product-price">{price}</h2>
           <h2 id="product-price-after">:-</h2>
         </div>
-        <Link id="category-link" to={'/' + category}>
-          <h3>{category}</h3>
-        </Link>
+        <form id="category-link" method="get" action="/category">
+          <input type="hidden" name="q" value={category} />
+          <button>
+            <h3>{category}</h3>
+          </button>
+        </form>
         <p>{description}</p>
       </div>
       <button className="product-button" onClick={AddItem}>
