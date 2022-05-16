@@ -2,7 +2,6 @@ import './productpage-style.css';
 import Product from '../../Product-Component/product-component';
 import { store, ADD_ITEM } from '../../Redux/cartReducer';
 import { CartItem, Item, SearchParam } from '../../Models';
-import React from 'react';
 
 function ProductPage({ productsData: productsData }: { productsData: Item[] }) {
   return (
