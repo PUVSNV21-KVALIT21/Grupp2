@@ -14,15 +14,10 @@ async function loadProducts(controller: string, query: string, sort?: SearchPara
   let itemResp: Item[] = [];
   let resp: Item[];
   if (controller == 'category') {
-    console.log('kategori');
-    console.log(query);
-    console.log('hej');
     resp = await getCategoryProducts(query);
   } else if (controller == 'products') {
-    console.log('produkter');
     resp = await getSearchProducts(query);
   } else {
-    console.log('nyheter');
     resp = await getNewsArticles();
   }
   itemResp = resp;

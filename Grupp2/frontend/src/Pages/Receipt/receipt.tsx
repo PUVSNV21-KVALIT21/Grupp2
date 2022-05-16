@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Product from './ProductComponent/product-component';
-import { Item, ShoppingCart } from '../../Models';
+import { CartItem, ShoppingCart } from '../../Models';
 import React, { useEffect, useState } from 'react';
 import { RESET, store } from '../../Redux/cartReducer';
 import logo from '../../assets/graphics/Logoredbackground.svg';
@@ -14,7 +14,7 @@ function Receipt({ cart }: { cart: [] }) {
 
   let price = 0;
   useEffect(() => {
-    cart.forEach((item: Item) => {
+    cart.forEach((item: CartItem) => {
       price += item.qty * item.price;
       setTotalPrice(price);
       randomOCR();
@@ -51,8 +51,8 @@ function Receipt({ cart }: { cart: [] }) {
           <h3>Product</h3>
           <h3>Unit Price</h3>
         </div>
-        {cart.map((item: Item) => {
-          return <Product key={item.id} qty={item.qty} title={item.title} price={item.price} />;
+        {cart.map((item: CartItem) => {
+          return <Product key={item.id} qty={item.qty} title={item.name} price={item.price} />;
         })}
 
         <div className="payment">
