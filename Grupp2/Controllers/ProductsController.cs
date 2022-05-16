@@ -39,7 +39,7 @@ namespace Grupp2.Controllers
         }
 
         // GET: /Products
-        [HttpGet("Products")]
+        [HttpGet("api/Products")]
         public async Task<IEnumerable> GetProductsAsync()
         {
             var products = await _productService.GetProducts();
@@ -48,7 +48,7 @@ namespace Grupp2.Controllers
             return ProducktWithCategoryName(products);
         }
 
-        [HttpGet("Category/{category}")]
+        [HttpGet("api/Category/{category}")]
         public async Task<IEnumerable> GetProductsInCategoryAsync(string category)
         {
             var products = await _productService.SearchByCategory(category);
@@ -57,7 +57,7 @@ namespace Grupp2.Controllers
             return ProducktWithCategoryName(products);
         }
 
-        [HttpGet("Products/{search}")]
+        [HttpGet("api/Products/{search}")]
         public async Task<IEnumerable> GetProductsFromSearchAsync(string search)
         {
             var products = await _productService.SearchProduct(search);
@@ -66,7 +66,7 @@ namespace Grupp2.Controllers
             return ProducktWithCategoryName(products);
         }
 
-        [HttpGet("Products/sort/{value}")]
+        [HttpGet("api/Products/sort/{value}")]
         public async Task<IEnumerable> GetSortProductsOnValueAsync(string value)
         {
             var products = await _productService.OrderProduct(value);
