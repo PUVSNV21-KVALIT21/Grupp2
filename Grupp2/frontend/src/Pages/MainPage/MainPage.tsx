@@ -8,13 +8,22 @@ import { getCategoryProducts, getNewsArticles, getSearchProducts } from '../../H
 import React from 'react';
 import { useLocation, Route, Routes } from 'react-router-dom';
 
-async function loadProducts(controller?: string, query?: string, sort?: SearchParam) {
+async function loadProducts(controller: string, query: string, sort?: SearchParam) {
+  console.log(controller);
+  console.log(query);
   let itemResp: Item[] = [];
-  let resp: Item[] = await getNewsArticles();
+  let resp: Item[];
   if (controller == 'category') {
+    console.log('kategori');
+    console.log(query);
+    console.log('hej');
     resp = await getCategoryProducts(query);
   } else if (controller == 'products') {
+    console.log('produkter');
     resp = await getSearchProducts(query);
+  } else {
+    console.log('nyheter');
+    resp = await getNewsArticles();
   }
   itemResp = resp;
 
@@ -33,7 +42,7 @@ function MainPage() {
       query = location.search.split('?q=')[1];
     } else if (location.pathname.startsWith('/category')) {
       const newUrl = url.split('/');
-      controller = newUrl[1];
+      controller = 'category';
       query = newUrl[2];
     }
     console.log(url);

@@ -1,7 +1,7 @@
 ﻿import { Category, Item, SearchParam } from '../Models';
 
 // define URLs
-export const apiUrl = 'https://localhost:7048/api/';
+export const apiUrl = 'api/';
 
 // get all categories
 export const getCategories = async (): Promise<Category[]> => {
@@ -16,7 +16,7 @@ export const getNewsArticles = async (): Promise<Item[]> => {
 };
 
 export const getCategoryProducts = async (query?: string): Promise<Item[]> => {
-  const response = await fetch(apiUrl + 'category/' + query?.replaceAll('+', ' '));
+  const response = await fetch(apiUrl + query?.replaceAll('+', ' '));
   console.log(response);
   return (await response.json()) as Item[];
 };
