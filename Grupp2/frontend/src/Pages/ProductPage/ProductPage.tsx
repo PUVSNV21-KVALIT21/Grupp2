@@ -4,8 +4,7 @@ import { store, ADD_ITEM } from '../../Redux/cartReducer';
 import { CartItem, Item, SearchParam } from '../../Models';
 import React from 'react';
 
-
-function ProductPage({ productsData: productsData }: { productsData: Item[];  }) {
+function ProductPage({ productsData: productsData }: { productsData: Item[] }) {
   return (
     <div className="product-page">
       <div className="products">
@@ -15,7 +14,7 @@ function ProductPage({ productsData: productsData }: { productsData: Item[];  })
               key={item.id}
               title={item.name}
               price={item.price}
-              category={item.category != null ? item.category.name : "okänt"}
+              category={item.category != null ? item.category.name : 'okänt'}
               description={item.description}
               AddItem={() => store.dispatch(ADD_ITEM(item))}
             />
