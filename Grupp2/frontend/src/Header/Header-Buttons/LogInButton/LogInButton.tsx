@@ -31,7 +31,7 @@ function LogInButton() {
             {user.length > 0 ? 'Hantera Konto' : 'Logga In'}
           </p>
           <p ref={userInfoText} id="loggedin-text">
-            {user.length > 0 ? 'Välkommen ' + user[0]?.firstName + user[0]?.lastName : ' '}
+            {user.length > 0 ? 'Välkommen ' + user[0]?.firstName + ' ' + user[0]?.lastName : ' '}
           </p>
         </button>
       </form>
