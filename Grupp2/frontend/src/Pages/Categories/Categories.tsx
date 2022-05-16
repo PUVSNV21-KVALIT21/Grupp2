@@ -22,7 +22,12 @@ function Categories() {
   console.log(categories);
   return (
     <div className="categories-page">
-      {categories.map(c => <CategoryComponent key={c.name} icon={c.imageLink} category={c.name} />)}
+      {categories.map(c => {
+        return <CategoryComponent
+          key={c.name}
+          icon={c.imageLink}
+          category={c.name} />;
+      })}
     </div>
   );
 }
