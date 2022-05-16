@@ -1,0 +1,142 @@
+.receipt-wrapper {
+  padding: 1rem;
+}
+
+.receipt-header {
+  display: grid;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  width: auto;
+  grid-template-columns: 3fr 1fr auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 5px 10px 8px #888888;
+  background-color: #a45959;
+  border-radius: 10px;
+}
+
+#ctn-shopping-btn {
+  width: 11rem;
+  height: 4rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 18px;
+}
+
+#ctn-shopping-btn:hover {
+  background-color: rgb(231, 114, 114);
+}
+
+#link-close {
+  color: black;
+}
+
+#logo {
+  height: 13rem;
+  border-radius: 10px;
+}
+
+.receipt {
+  margin: 0 auto;
+  max-width: 1000px;
+  width: auto;
+  height: auto;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.adress-info {
+  margin-bottom: 1rem;
+}
+
+.adress-info h3 {
+  font-size: 18px;
+  list-style: none;
+}
+
+.receipt h2 {
+  position: relative;
+  inset: 0 0 0 80%;
+  font-size: 40px;
+}
+
+.headers {
+  display: grid;
+  margin: 0 auto;
+  max-width: 900px;
+  width: auto;
+  grid-template-columns: 1fr 2fr 10%;
+  background-color: white;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.payment {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.payment h4 {
+  display: inline;
+}
+
+#total-price-header {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+#total-price {
+  font-size: 2rem;
+  margin-top: 3rem;
+  font-style: oblique;
+}
+
+#ocr-header {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#ocr-number {
+  font-size: 20px;
+  font-style: oblique;
+}
+
+@media screen and (max-width: 521px) {
+  .receipt-header {
+    width: 540px;
+    font-size: 12px;
+  }
+
+  #ctn-shopping-btn {
+    position: relative;
+    right: 2rem;
+    width: 7rem;
+  }
+
+  #logo {
+    height: 10rem;
+  }
+
+  .receipt {
+    position: relative;
+    left: 1rem;
+    width: 440px;
+  }
+
+  .headers {
+    display: grid;
+    margin: 0 auto;
+    max-width: 900px;
+    width: auto;
+    grid-template-columns: 1fr 2fr auto;
+  }
+
+  .receipt h2 {
+    position: relative;
+    left: 18.5rem;
+  }
+}

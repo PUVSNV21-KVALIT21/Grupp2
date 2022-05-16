@@ -1,9 +1,0 @@
-.main-page-wrapper {
-  max-width: 1200px;
-  min-width: 330px;
-}
-
-.main-page {
-  display: grid;
-  grid-template-columns: 14rem auto;
-}
