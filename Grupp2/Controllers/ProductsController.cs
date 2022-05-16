@@ -47,8 +47,14 @@ namespace Grupp2.Controllers
 
             return ProducktWithCategoryName(products);
         }
-
+        [HttpGet("api/Category")]
+        public async Task<IEnumerable> GetCategories()
+        {
+            var categories = await _categoryService.GetCategories();       
+            return categories;
+        }
         [HttpGet("api/Category/{category}")]
+
         public async Task<IEnumerable> GetProductsInCategoryAsync(string category)
         {
             var products = await _productService.SearchByCategory(category);
@@ -65,7 +71,15 @@ namespace Grupp2.Controllers
 
             return ProducktWithCategoryName(products);
         }
-
+        
+        [HttpGet("api/Products/news")]
+        public async Task<IEnumerable> GetNewsArticles()
+        {
+            var products = await _productService.GetProducts();
+            var categories = await _categoryService.GetCategories();
+            return products.Where(p => p.IsNewsProduct);
+        }
+        
         [HttpGet("api/Products/sort/{value}")]
         public async Task<IEnumerable> GetSortProductsOnValueAsync(string value)
         {

@@ -20,6 +20,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<ProductService>();
 
+builder.Services.AddSwaggerGen();
+
 // In production, the React files will be served from this directory
 builder.Services.AddSpaStaticFiles(configuration =>
 {
@@ -48,6 +50,16 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    }
+    );
+}
 
 app.UseEndpoints(endpoints =>
 {
