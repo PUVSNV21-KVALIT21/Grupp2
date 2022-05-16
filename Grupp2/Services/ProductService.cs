@@ -33,6 +33,53 @@ namespace Grupp2.Services
             return products;
         }
 
+        public async Task<IEnumerable<Product>> OrderProduct(string value)
+        {
+            value = value.Trim().ToLower();
+            if (value == "name")
+            {
+                var products = await _database.Products
+                        .OrderBy(l => l.Name)
+                        .ToListAsync();
+                return products;
+            }
+            else if (value == "price")
+            {
+                var products = await _database.Products
+                        .OrderBy(l => l.Price)
+                        .ToListAsync();
+                return products;
+            }
+            else if (value == "category")
+            {
+                var products = await _database.Products
+                        .OrderBy(l => l.Category.Name)
+                        .ToListAsync();
+                return products;
+            }
+            else if (value == "discount")
+            {
+                var products = await _database.Products
+                        .OrderBy(l => l.Discount.DiscountValue)
+                        .ToListAsync();
+                return products;
+            }
+            else if (value == "isnew")
+            {
+                var products = await _database.Products
+                        .OrderBy(l => l.IsNewsProduct)
+                        .ToListAsync();
+                return products;
+            }
+            else
+            {
+                var products = await _database.Products
+                        .OrderBy(l => l)
+                        .ToListAsync();
+                return products;
+            }
+        }
+
         public async Task<IEnumerable<Product>> SearchByCategory(string category)
         {
             var products = await _database.Products
