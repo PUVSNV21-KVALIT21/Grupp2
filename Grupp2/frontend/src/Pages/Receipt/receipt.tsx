@@ -52,6 +52,7 @@ function Receipt({ cart }: { cart: [] }) {
           <h3>Unit Price</h3>
         </div>
         {cart.map((item: CartItem) => {
+
           return <Product key={item.id} qty={item.qty} title={item.name} price={item.price} />;
         })}
 
