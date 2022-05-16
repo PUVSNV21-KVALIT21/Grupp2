@@ -16,7 +16,7 @@ export interface Item {
   discount: null;
   isNewsProduct: boolean;
 }
-export interface CartItem extends Item{
+export interface CartItem extends Item {
   qty: number;
 }
 

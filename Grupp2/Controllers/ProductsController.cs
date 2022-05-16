@@ -27,54 +27,91 @@ namespace Grupp2.Controllers
             _productService = productService;
         }
 
+        private class ProductWithCategoryName
+        {
+            public Guid Id { get; set; }
+            public string Name { get; set; }
+            public int Price { get; set; }
+            public string Description { get; set; }
+            public string Category { get; set; }
+            public string Discount { get; set; }
+            public bool IsNewsProduct { get; set; }
+        }
+
         // GET: /Products
-        [HttpGet("Products")]
+        [HttpGet("api/Products")]
         public async Task<IEnumerable> GetProductsAsync()
         {
             var products = await _productService.GetProducts();
             var categories = await _categoryService.GetCategories();
 
-            return products;
+            return ProducktWithCategoryName(products);
         }
-        [HttpGet("Category")]
+        [HttpGet("api/Category")]
         public async Task<IEnumerable> GetCategories()
         {
-            var categories = await _categoryService.GetCategories();
-
+            var categories = await _categoryService.GetCategories();       
             return categories;
         }
-        [HttpGet("Category/{category}")]
+        [HttpGet("api/Category/{category}")]
+
         public async Task<IEnumerable> GetProductsInCategoryAsync(string category)
         {
             var products = await _productService.SearchByCategory(category);
             var categories = await _categoryService.GetCategories();
 
-            return products;
+            return ProducktWithCategoryName(products);
         }
 
-        [HttpGet("Products/{search}")]
+        [HttpGet("api/Products/{search}")]
         public async Task<IEnumerable> GetProductsFromSearchAsync(string search)
         {
             var products = await _productService.SearchProduct(search);
             var categories = await _categoryService.GetCategories();
 
-            return products;
+            return ProducktWithCategoryName(products);
         }
-        [HttpGet("Products/news")]
+        
+        [HttpGet("api/Products/news")]
         public async Task<IEnumerable> GetNewsArticles()
         {
             var products = await _productService.GetProducts();
             var categories = await _categoryService.GetCategories();
             return products.Where(p => p.IsNewsProduct);
         }
-        [HttpGet("Products/sort/{value}")]
+        
+        [HttpGet("api/Products/sort/{value}")]
         public async Task<IEnumerable> GetSortProductsOnValueAsync(string value)
         {
-            var products = await _productService.SearchProduct(value);
+            var products = await _productService.OrderProduct(value);
             var categories = await _categoryService.GetCategories();
 
-            return products;
+            return ProducktWithCategoryName(products);
         }
 
+        private List<ProductWithCategoryName> ProducktWithCategoryName(IEnumerable<Product> products)
+        {
+            var productsList = new List<ProductWithCategoryName>();
+            foreach (var p in products)
+            {
+                var discountValue = "";
+                if (p.Discount != null)
+                {
+                    discountValue = p.Discount.Id.ToString();
+                }
+                productsList.Add(new ProductWithCategoryName
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Price = p.Price,
+                    Description = p.Description,
+                    Category = p.Category.Name,
+                    Discount = discountValue,
+                    IsNewsProduct = p.IsNewsProduct
+
+                });
+            }
+            return productsList;
+        }
     }
 }
