@@ -64,7 +64,6 @@ function MainPage() {
         <div className="categories">
           <Categories />
         </div>
-        <h2>{category.name}</h2>
         <Routes>
           <Route path="/" element={<ProductPage productsData={products} />} />
         </Routes>

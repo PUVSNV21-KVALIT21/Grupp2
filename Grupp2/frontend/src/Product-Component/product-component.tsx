@@ -22,7 +22,7 @@ function Product({
           <h2 id="product-price">{price}</h2>
           <h2 id="product-price-after">:-</h2>
         </div>
-        <Link id="category-link" to={'/' + category.toLocaleLowerCase()}>
+        <Link id="category-link" to={'/' + category}>
           <h3>{category}</h3>
         </Link>
         <p>{description}</p>
