@@ -36,9 +36,8 @@ function MainPage() {
       controller = 'products';
       query = location.search.split('?q=')[1];
     } else if (location.pathname.startsWith('/category')) {
-      const newUrl = url.split('/');
       controller = 'category';
-      query = newUrl[2];
+        query = location.search.split('?q=')[1];
     }
     console.log(url);
     console.log(controller);
