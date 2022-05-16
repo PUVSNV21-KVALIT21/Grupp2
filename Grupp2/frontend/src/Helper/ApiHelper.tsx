@@ -1,7 +1,7 @@
 ﻿import { Category, Item, SearchParam } from '../Models';
 
 // define URLs
-export const apiUrl = 'https://localhost:7048/';
+export const apiUrl = 'https://localhost:7048/api/';
 
 // get all categories
 export const getCategories = async (): Promise<Category[]> => {
