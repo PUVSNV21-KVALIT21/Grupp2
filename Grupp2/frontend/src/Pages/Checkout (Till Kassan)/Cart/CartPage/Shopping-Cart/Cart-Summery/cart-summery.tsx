@@ -9,9 +9,11 @@ function CartSummery({ cart }: { cart: [] }) {
   const [cartSum, setCartSum] = useState(0);
   const [deliveryPrice, setDeliveryPrice] = useState(0);
   const [delivery, setDelivery] = useState(Boolean);
+  const [user, setUser] = useState([{}]);
   const payBtn: any = useRef();
   const deliveryText: any = useRef();
   const noItemsText: any = useRef();
+  const notLoggedInUser: any = useRef();
 
   //Run once on mount
   useEffect(() => {
@@ -19,6 +21,7 @@ function CartSummery({ cart }: { cart: [] }) {
     payBtn.current.style.pointerEvents = 'none';
     deliveryText.current.style.display = 'block';
     noItemsText.current.style.display = 'none';
+    getUser();
   }, []);
 
   let totalPrice = 0;
@@ -31,12 +34,29 @@ function CartSummery({ cart }: { cart: [] }) {
     checkCart();
   }, [cart, delivery]);
 
+  let userResponse: any;
+
+  async function getUser() {
+    const response = await fetch('/user', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    userResponse = await response.json();
+    console.log(userResponse);
+    setUser(userResponse);
+    if (userResponse.length > 0) {
+      notLoggedInUser.current.style.display = 'none';
+    } else {
+      notLoggedInUser.current.style.display = 'block';
+    }
+  }
+
   function checkCart() {
     if (cart.length === 0) {
       payBtn.current.style.opacity = '50%';
       payBtn.current.style.pointerEvents = 'none';
       noItemsText.current.style.display = 'block';
-    } else if (cart.length > 0 && delivery) {
+    } else if (cart.length > 0 && delivery && user.length > 0) {
       console.log('cart.length > 0 && delivery');
       payBtn.current.style.opacity = '100%';
       payBtn.current.style.pointerEvents = 'auto';
@@ -66,7 +86,6 @@ function CartSummery({ cart }: { cart: [] }) {
           <span>Summa varor</span>
           {/* round total to two decimals */}
           <span>{Math.round(cartSum * 100) / 100} kr</span>
-
         </li>
         <li className="cart-item">
           <div className="delivery">
@@ -105,7 +124,6 @@ function CartSummery({ cart }: { cart: [] }) {
           <b>Totalt</b>
           {/* round total to two decimals */}
           <b>{Math.round((cartSum + deliveryPrice) * 100) / 100} kr</b>
-
         </li>
       </div>
       <div className="checkout">
@@ -121,6 +139,9 @@ function CartSummery({ cart }: { cart: [] }) {
       </span>
       <span id="empty-cart-error-text" ref={noItemsText}>
         Lägg till varor för att gå vidare till betalning
+      </span>
+      <span id="notlogged-user-error-text" ref={notLoggedInUser}>
+        Du måste logga in för att slutföra ditt köp
       </span>
     </div>
   );
