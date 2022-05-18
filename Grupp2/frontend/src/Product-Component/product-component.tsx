@@ -4,12 +4,14 @@ function Product({
   title,
   price,
   category,
+  newsItem,
   description,
   AddItem,
 }: {
   title: string;
   price: number;
   category: string;
+  newsItem: string;
   description: string;
   AddItem: () => void;
 }) {
@@ -26,6 +28,7 @@ function Product({
           <button>
             <h3>{category}</h3>
           </button>
+          <h4 id="news-item">{newsItem}</h4>
         </form>
         <p>{description}</p>
       </div>
