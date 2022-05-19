@@ -22,7 +22,7 @@
 }
 
 #login-button {
-  background-image: url('../../assets/graphics/login.jpg');
+  background-image: url('../../assets/graphics/user.svg');
   background-repeat: no-repeat;
   background-position: 10% 50%;
   background-size: 1.3rem;

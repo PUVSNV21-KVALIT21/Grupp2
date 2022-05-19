@@ -1,8 +1,12 @@
 import useCollapse from 'react-collapsed';
 import './sort-style.css';
 
-function Sort() {
+function SortComp({ setSort }: { setSort: any }) {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+
+  function handleClick(event) {
+    setSort(event.target.value);
+  }
 
   return (
     <div className="collapsible">
@@ -12,17 +16,25 @@ function Sort() {
       </div>
       <div {...getCollapseProps()}>
         <div className="content">
-          <button>A-Z</button>
+          <button onClick={handleClick} value={'AtoZ'}>
+            A-Z
+          </button>
           <br />
-          <button>Z-A</button>
+          <button onClick={handleClick} value={'ZtoA'}>
+            Z-A
+          </button>
           <br />
-          <button>Högsta pris</button>
+          <button onClick={handleClick} value={'highestPriceFirst'}>
+            Högsta pris
+          </button>
           <br />
-          <button>Lägsta pris</button>
+          <button onClick={handleClick} value={'lowestPriceFirst'}>
+            Lägsta pris
+          </button>
         </div>
       </div>
     </div>
   );
 }
 
-export default Sort;
+export default SortComp;
