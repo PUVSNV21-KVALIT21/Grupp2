@@ -48,17 +48,29 @@ function Receipt({ cart }: { cart: [] }) {
         </h3>
         <div className="headers">
           <h3>QTY</h3>
-          <h3>Product</h3>
-          <h3>Unit Price</h3>
+          <h3>Produkt</h3>
+          <h3>Enhetspris</h3>
+          <h3>Summa</h3>
+          <h3></h3>
         </div>
         {cart.map((item: CartItem) => {
-
-          return <Product key={item.id} qty={item.qty} title={item.name} price={item.price} />;
+          return (
+            <Product
+              key={item.id}
+              qty={item.qty}
+              title={item.name}
+              price={item.price}
+              totalPrice={item.qty * item.price}
+            />
+          );
         })}
 
         <div className="payment">
           <h4 id="total-price-header">Summa: </h4>
           <h4 id="total-price">{Math.round(totalPrice * 100) / 100} kr</h4>
+          <br />
+          <h4 id="delivery-cost-header">Leveransavgift: </h4>
+          <h4 id="delivery-cost">{deliveryCost} kr</h4>
           <br />
           <h4 id="ocr-header">Bankgiro: </h4>
           <h4 id="ocr-number">1234-567</h4>

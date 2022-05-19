@@ -27,7 +27,7 @@
 
 @media screen and (max-width: 521px) {
   .header-wrapper {
-    width: 500px;
+    width: 540px;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
   }
