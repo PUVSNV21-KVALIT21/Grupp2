@@ -39,20 +39,38 @@ namespace Grupp2.Areas.Admin.Controllers
 
         //Admin/Product/GetProductsInCategory/{search}
         [HttpGet]
-        public async Task<IActionResult> GetProductsInCategory(string searchString)
+        public async Task<IActionResult> GetProductsInCategory(string searchStringCategory)
         {
-            var products = await _productService.SearchByCategory(searchString);
-            var categories = await _categoryService.GetCategories();
-            return View("Index", products);
+            if (!String.IsNullOrEmpty(searchStringCategory))
+            {
+                var products = await _productService.SearchByCategory(searchStringCategory);
+                var categories = await _categoryService.GetCategories();
+                return View("Index", products);
+            }
+            else
+            {
+                var product = await _context.Products.ToArrayAsync();
+                var category = await _context.Categories.ToArrayAsync();
+                return View("Index", product);
+            }
         }
 
         //Admin/Products/GetProductsFromSearch/{search}
         [HttpGet]
-        public async Task<IActionResult> GetProductsFromSearch(string searchString)
+        public async Task<IActionResult> GetProductsFromSearch(string searchStringProduct)
         {
-            var products = await _productService.SearchProduct(searchString);
-            var categories = await _categoryService.GetCategories();
-            return View("Index", products);
+            if (!String.IsNullOrEmpty(searchStringProduct))
+            {
+                var products = await _productService.SearchProduct(searchStringProduct);
+                var categories = await _categoryService.GetCategories();
+                return View("Index", products);
+            }
+            else
+            {
+                var product = await _context.Products.ToArrayAsync();
+                var category = await _context.Categories.ToArrayAsync();
+                return View("Index", product);
+            }
         }
 
         // GET: Admin/Product/Details/5
