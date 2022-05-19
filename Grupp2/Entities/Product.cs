@@ -18,5 +18,6 @@ namespace Grupp2.Entities
         public Discount? Discount { get; set; }
         [DisplayName("Nyhetsprodukt")]
         public bool IsNewsProduct { get; set; }
+        public string? ImgPath { get; set; }
     }
 }
