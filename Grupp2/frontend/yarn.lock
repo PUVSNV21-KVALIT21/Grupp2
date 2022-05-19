@@ -7370,10 +7370,10 @@
     "regenerator-runtime" "^0.13.9"
     "whatwg-fetch" "^3.6.2"
 
-"react-collapsed@^3.3.0":
-  "integrity" "sha512-2oXo9xsleo3ZwmNP7GymWbkZp2SwDZImLduy1LKgQMsqZTDldyzP2GnfvYb9vyGFDYHRYFhnWlwDmG2yWkt8eQ=="
-  "resolved" "https://registry.npmjs.org/react-collapsed/-/react-collapsed-3.3.0.tgz"
-  "version" "3.3.0"
+"react-collapsed@^3.3.1":
+  "integrity" "sha512-94i7mu1hXeJmvTz8fOvjXyS+uolREnEyhIP7lx6+C/iYjpNWWqEKkSN26ZRZNU0B9Izy97oParWwsDIZyXQu6g=="
+  "resolved" "https://registry.npmjs.org/react-collapsed/-/react-collapsed-3.3.1.tgz"
+  "version" "3.3.1"
   dependencies:
     "raf" "^3.4.1"
     "tiny-warning" "^1.0.3"

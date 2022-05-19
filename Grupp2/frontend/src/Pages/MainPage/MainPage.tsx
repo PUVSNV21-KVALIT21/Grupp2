@@ -8,10 +8,7 @@ import { getCategoryProducts, getNewsArticles, getSearchProducts } from '../../H
 import React from 'react';
 import { useLocation, Route, Routes } from 'react-router-dom';
 
-
 async function loadProducts(controller: string, query: string, sort?: SearchParam) {
-  console.log(controller);
-  console.log(query);
   let itemResp: Item[] = [];
   let resp: Item[];
   if (controller == 'category') {
@@ -40,9 +37,6 @@ function MainPage() {
       controller = 'category';
       query = location.search.split('?q=')[1];
     }
-    console.log(url);
-    console.log(controller);
-    console.log(query);
     setProducts([]);
     loadProducts(controller, query).then((newItems) => {
       setProducts(newItems);
