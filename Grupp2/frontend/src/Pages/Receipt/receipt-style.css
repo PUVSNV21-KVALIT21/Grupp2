@@ -68,7 +68,7 @@
   margin: 0 auto;
   max-width: 900px;
   width: auto;
-  grid-template-columns: 1fr 2fr 10%;
+  grid-template-columns: 1fr 2fr 1fr 10%;
   background-color: white;
   border: 1px solid black;
   padding: 1rem;
@@ -91,6 +91,16 @@
 #total-price {
   font-size: 2rem;
   margin-top: 3rem;
+  font-style: oblique;
+}
+
+#delivery-cost-header {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#delivery-cost {
+  font-size: 20px;
   font-style: oblique;
 }
 

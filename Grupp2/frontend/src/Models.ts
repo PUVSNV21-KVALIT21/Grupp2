@@ -18,6 +18,7 @@ export interface Item {
 }
 export interface CartItem extends Item {
   qty: number;
+  totalPrice: number;
 }
 
 export interface SearchParam {
