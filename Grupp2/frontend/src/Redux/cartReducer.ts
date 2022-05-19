@@ -8,7 +8,7 @@ const persistConfig = {
   storage,
 };
 
-const state = { shoppingCart: [] };
+const state = { shoppingCart: [], deliveryCost: 0.0 };
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const cartSlice = createSlice({
@@ -59,9 +59,17 @@ const cartSlice = createSlice({
         shoppingCart: state.shoppingCart.filter((item: any) => item.id !== action.payload.id),
       };
     },
+    ADD_DELIVERY_COST: (state: any, action: any) => {
+      console.log(action.payload);
+      return {
+        ...state,
+        deliveryCost: action.payload.deliveryCost,
+      };
+    },
     RESET: () => {
       return {
         shoppingCart: [],
+        deliveryCost: 0.0
       };
     },
   }, //end of reducers
@@ -80,6 +88,6 @@ const store = configureStore({
     }),
 });
 
-export const { ADD_ITEM, ADD_QUANTITY, DECREASE_QUANTITY, REMOVE_FROM_CART, RESET } =
+export const { ADD_ITEM, ADD_QUANTITY, DECREASE_QUANTITY, REMOVE_FROM_CART, ADD_DELIVERY_COST, RESET } =
   cartSlice.actions;
 export { cartSlice, store };

@@ -60,7 +60,7 @@
 
 .product p {
   position: relative;
-  top: 2rem;
+  top: 1rem;
   font-family: 'Montserratblack';
   color: #000;
   height: 50px;
@@ -87,4 +87,9 @@
 
 .product-button:hover {
   background-color: #9e1717;
+}
+
+#news-item {
+  color: rgb(26, 172, 26);
+  height: 1rem;
 }

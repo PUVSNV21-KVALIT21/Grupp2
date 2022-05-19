@@ -13,6 +13,7 @@ function ProductPage({ productsData: productsData }: { productsData: Item[] }) {
               key={item.id}
               title={item.name}
               price={item.price}
+              newsItem={item.isNewsProduct ? 'Nyhetsvara' : ''}
               category={item.category != null ? item.category.name : 'okänt'}
               description={item.description}
               AddItem={() => store.dispatch(ADD_ITEM(item))}

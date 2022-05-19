@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import Product from './ProductComponent/product-component';
 import { CartItem, ShoppingCart } from '../../Models';
 import React, { useEffect, useState } from 'react';
@@ -11,12 +11,12 @@ import './receipt-style.css';
 function Receipt({ cart }: { cart: [] }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [OCR, setOCR] = useState(0);
-
+  const deliveryCost = useSelector((state: any) => state.deliveryCost);
   let price = 0;
   useEffect(() => {
     cart.forEach((item: CartItem) => {
       price += item.qty * item.price;
-      setTotalPrice(price);
+      setTotalPrice(price + deliveryCost);
       randomOCR();
     });
   }, []);
@@ -26,7 +26,7 @@ function Receipt({ cart }: { cart: [] }) {
     console.log(random);
     setOCR(random);
   }
-
+  console.log(deliveryCost);
   return (
     <div className="receipt-wrapper">
       <div className="receipt-header">
