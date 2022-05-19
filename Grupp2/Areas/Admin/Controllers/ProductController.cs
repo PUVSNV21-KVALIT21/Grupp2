@@ -19,15 +19,15 @@ namespace Grupp2.Areas.Admin.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly CategoryService _categoryService;
+        private readonly ProductService _productService;
 
-
-        public ProductController(ApplicationDbContext context, CategoryService categoryService)
+        public ProductController(ApplicationDbContext context, ProductService productService, CategoryService categoryService)
         {
             _context = context;
             _categoryService = categoryService;
+            _productService = productService;
 
         }
-
         // GET: Admin/Product
         public async Task<IActionResult> Index()
         {
@@ -35,6 +35,24 @@ namespace Grupp2.Areas.Admin.Controllers
             var category = await _context.Categories.ToArrayAsync();
 
             return View(product);
+        }
+
+        //Admin/Product/GetProductsInCategory/{search}
+        [HttpGet]
+        public async Task<IActionResult> GetProductsInCategory(string search)
+        {
+            var products = await _productService.SearchByCategory(search);
+            var categories = await _categoryService.GetCategories();
+            return View("Index", products);
+        }
+
+        //Admin/Products/GetProductsFromSearch/{search}
+        [HttpGet]
+        public async Task<IActionResult> GetProductsFromSearch(string search)
+        {
+            var products = await _productService.SearchProduct(search);
+            var categories = await _categoryService.GetCategories();
+            return View("Index", products);
         }
 
         // GET: Admin/Product/Details/5
@@ -57,7 +75,7 @@ namespace Grupp2.Areas.Admin.Controllers
 
         // GET: Admin/Product/Create
         public async Task<IActionResult> Create()
-        { 
+        {
             var categories = await _categoryService.GetCategories();
             ViewBag.Categories = new SelectList(categories, "Id", "Name");
             return View();

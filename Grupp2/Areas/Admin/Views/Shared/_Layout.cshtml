@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model SearchModel
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -27,16 +28,16 @@
                         </li>
                         <partial name="_AdminMenuPartial" />                       
                     </ul>
-                     <div class="text-center">
-                        <form asp-controller="Home">
-                            <input type="text" name="productString" />
-                            <input type="submit" value="Search Product" />
+                    <div class="text-center">
+                        <form asp-area="Admin" asp-controller="Product" asp-action="GetProductsInCategory">
+                            <input asp-for="Search" class="form-control" />
+                            <input type="submit" value="Search by Product" />
                         </form>
                     </div>
                     <div class="text-center">
-                        <form asp-controller="Home">
-                            <input type="text" name="categoryString" />
-                            <input type="submit" value="Search Product" />
+                        <form asp-area="Admin" asp-controller="Product" asp-action="GetProductsFromSearch">
+                            <input asp-for="Search" class="form-control" />
+                            <input type="submit" value="Search by Category" />
                         </form>
                     </div>
                     <partial name="_LoginPartial" />
