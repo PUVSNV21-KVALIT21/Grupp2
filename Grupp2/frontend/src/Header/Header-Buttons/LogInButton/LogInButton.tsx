@@ -8,10 +8,6 @@ function LogInButton() {
 
   useEffect(() => {
     getUser();
-
-    if (user.length > 0) {
-      userInfoText.current.style.display = 'block';
-    }
   }, []);
 
   async function getUser() {
@@ -20,7 +16,12 @@ function LogInButton() {
       headers: { 'Content-Type': 'application/json' },
     });
     const userResponse = await response.json();
-    setUser(userResponse);
+    if (userResponse) {
+      setUser(userResponse);
+    }
+    if (user[0].email !== '') {
+      userInfoText.current.style.display = 'block';
+    }
   }
 
   return (
@@ -28,10 +29,10 @@ function LogInButton() {
       <form action={'/Identity/Account/Manage'}>
         <button className="button" id="login-button">
           <p ref={manageAccountText} id="login-button-text">
-            {user.length > 0 ? 'Hantera Konto' : 'Logga In'}
+            {user[0].email ? 'Hantera Konto' : 'Logga In'}
           </p>
           <p ref={userInfoText} id="loggedin-text">
-            {user.length > 0 ? 'Välkommen ' + user[0]?.firstName + ' ' + user[0]?.lastName : ' '}
+            {'Välkommen ' + user[0].firstName + ' ' + user[0].lastName}
           </p>
         </button>
       </form>

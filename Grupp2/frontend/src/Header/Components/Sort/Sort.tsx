@@ -1,27 +1,26 @@
 import useCollapse from 'react-collapsed';
-import './style.css';
+import './sort-style.css';
 
 function Sort() {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
   return (
     <div className="collapsible">
-      {/* <div className="field" {...getToggleProps()}>
-        {isExpanded ? 'Hide' : 'Sort'}
+      <div className="field" {...getToggleProps()}>
+        {isExpanded ? 'Göm' : 'Sortera'}
+        <i className="arrow-down"></i>
       </div>
       <div {...getCollapseProps()}>
         <div className="content">
-          <button>Alphabetical A-Z</button>
+          <button>A-Z</button>
           <br />
-          <button>Alphabetical Z-A</button>
+          <button>Z-A</button>
           <br />
-          <button>Highest price first</button>
+          <button>Högsta pris</button>
           <br />
-          <button>Highest price last</button>
-          <br />
-          <button>Discounted products</button>
+          <button>Lägsta pris</button>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
