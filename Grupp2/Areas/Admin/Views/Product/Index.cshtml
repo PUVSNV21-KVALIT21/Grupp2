@@ -13,7 +13,7 @@
 
 @using (Html.BeginForm("GetProductsFromSearch", "Product", FormMethod.Get)){
 <p>
-    Title: @Html.TextBox("searchString") <br />
+    Title: @Html.TextBox("searchStringProduct") <br />
     <input type="submit" value="Search by Product" />
 </p>
 }
@@ -21,7 +21,7 @@
 
 @using (Html.BeginForm("GetProductsInCategory", "Product", FormMethod.Get)){
 <p>
-    Title: @Html.TextBox("searchString") <br />
+    Title: @Html.TextBox("searchStringCategory") <br />
     <input type="submit" value="Search by Category" />
 </p>
 }
