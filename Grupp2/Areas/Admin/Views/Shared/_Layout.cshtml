@@ -27,18 +27,6 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
-                    <div class="text-center">
-                        <form asp-area="Admin" asp-controller="Product" asp-action="GetProductsInCategory">
-                            <input asp-for="Search" class="form-control" />
-                            <input type="submit" value="Search by Product" />
-                        </form>
-                    </div>
-                    <div class="text-center">
-                        <form asp-area="Admin" asp-controller="Product" asp-action="GetProductsFromSearch">
-                            <input asp-for="Search" class="form-control" />
-                            <input type="submit" value="Search by Category" />
-                        </form>
-                    </div>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
