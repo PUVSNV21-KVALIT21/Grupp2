@@ -8,6 +8,7 @@ import { getCategoryProducts, getNewsArticles, getSearchProducts } from '../../H
 import React from 'react';
 import { useLocation, Route, Routes } from 'react-router-dom';
 
+
 async function loadProducts(controller: string, query: string, sort?: SearchParam) {
   console.log(controller);
   console.log(query);

@@ -45,7 +45,7 @@ namespace Grupp2.Controllers
             var products = await _productService.GetProducts();
             var categories = await _categoryService.GetCategories();
 
-            return ProducktWithCategoryName(products);
+            return products;
         }
         [HttpGet("api/Category")]
         public async Task<IEnumerable> GetCategories()

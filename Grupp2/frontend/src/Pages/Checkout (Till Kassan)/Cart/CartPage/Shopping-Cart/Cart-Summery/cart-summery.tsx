@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import './cart-summery.css';
 import { CartItem, ShoppingCart } from '../../../../../../Models';
 import { Link } from 'react-router-dom';
+import { store, ADD_DELIVERY_COST } from '../../../../../../Redux/cartReducer';
+
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 function CartSummery({ cart }: { cart: [] }) {
@@ -128,7 +130,7 @@ function CartSummery({ cart }: { cart: [] }) {
       </div>
       <div className="checkout">
         <Link to={'/receipt'} ref={payBtn}>
-          <button ref={payBtn} className="pay-button">
+          <button ref={payBtn} className="pay-button" onClick={() => store.dispatch(ADD_DELIVERY_COST({deliveryCost: deliveryPrice}))}>
             Betala
           </button>
         </Link>
