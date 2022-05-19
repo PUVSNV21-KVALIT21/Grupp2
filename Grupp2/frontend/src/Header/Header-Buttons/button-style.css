@@ -31,6 +31,17 @@
 #login-button-text {
   position: relative;
   inset: 0 0 0 13px;
+  height: 1rem;
+}
+
+#loggedin-text {
+  display: none;
+  position: relative;
+  text-align: left;
+  inset: 2.1rem 0 0 0;
+  color: white;
+  min-width: 30rem;
+  width: auto;
 }
 
 #cart-button {

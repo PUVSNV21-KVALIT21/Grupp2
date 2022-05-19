@@ -7,7 +7,6 @@
   align-items: center;
   margin: 0 auto;
   max-width: 1000px;
-  width: auto;
   grid-template-columns: 3fr 1fr auto;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -69,7 +68,7 @@
   margin: 0 auto;
   max-width: 900px;
   width: auto;
-  grid-template-columns: 1fr 2fr 10%;
+  grid-template-columns: 1fr 2fr 1fr 10%;
   background-color: white;
   border: 1px solid black;
   padding: 1rem;
@@ -95,6 +94,16 @@
   font-style: oblique;
 }
 
+#delivery-cost-header {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#delivery-cost {
+  font-size: 20px;
+  font-style: oblique;
+}
+
 #ocr-header {
   font-size: 20px;
   font-weight: 400;
@@ -107,13 +116,12 @@
 
 @media screen and (max-width: 521px) {
   .receipt-header {
-    width: 540px;
+    width: 440px;
     font-size: 12px;
   }
 
   #ctn-shopping-btn {
     position: relative;
-    right: 2rem;
     width: 7rem;
   }
 
@@ -123,7 +131,6 @@
 
   .receipt {
     position: relative;
-    left: 1rem;
     width: 440px;
   }
 

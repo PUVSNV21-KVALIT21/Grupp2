@@ -104,7 +104,7 @@ namespace Grupp2.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,Description,IsNewsProduct,Category")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,Description,IsNewsProduct,Category,ImgPath")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -145,7 +145,7 @@ namespace Grupp2.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Price,Description,IsNewsProduct,Category")] Product product)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Price,Description,IsNewsProduct,Category,ImgPath")] Product product)
         {
             if (id != product.Id)
             {

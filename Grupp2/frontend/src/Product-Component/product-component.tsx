@@ -1,16 +1,17 @@
 import './product-component-style.css';
-import { Link } from 'react-router-dom';
 
 function Product({
   title,
   price,
   category,
+  newsItem,
   description,
   AddItem,
 }: {
   title: string;
   price: number;
   category: string;
+  newsItem: string;
   description: string;
   AddItem: () => void;
 }) {
@@ -22,9 +23,13 @@ function Product({
           <h2 id="product-price">{price}</h2>
           <h2 id="product-price-after">:-</h2>
         </div>
-        <Link id="category-link" to={'/' + category.toLocaleLowerCase()}>
-          <h3>{category}</h3>
-        </Link>
+        <form id="category-link" method="get" action="/category">
+          <input type="hidden" name="q" value={category} />
+          <button>
+            <h3>{category}</h3>
+          </button>
+          <h4 id="news-item">{newsItem}</h4>
+        </form>
         <p>{description}</p>
       </div>
       <button className="product-button" onClick={AddItem}>
