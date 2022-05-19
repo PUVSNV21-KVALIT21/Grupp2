@@ -39,18 +39,18 @@ namespace Grupp2.Areas.Admin.Controllers
 
         //Admin/Product/GetProductsInCategory/{search}
         [HttpGet]
-        public async Task<IActionResult> GetProductsInCategory(string search)
+        public async Task<IActionResult> GetProductsInCategory(string searchString)
         {
-            var products = await _productService.SearchByCategory(search);
+            var products = await _productService.SearchByCategory(searchString);
             var categories = await _categoryService.GetCategories();
             return View("Index", products);
         }
 
         //Admin/Products/GetProductsFromSearch/{search}
         [HttpGet]
-        public async Task<IActionResult> GetProductsFromSearch(string search)
+        public async Task<IActionResult> GetProductsFromSearch(string searchString)
         {
-            var products = await _productService.SearchProduct(search);
+            var products = await _productService.SearchProduct(searchString);
             var categories = await _categoryService.GetCategories();
             return View("Index", products);
         }
