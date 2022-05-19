@@ -26,7 +26,7 @@ function LogInButton() {
 
   return (
     <div>
-      <form action={'/Identity/Account/Manage'}>
+      <form action={user[0].role === 'Admin' ? '/admin/product' : '/Identity/Account/Manage'}>
         <button className="button" id="login-button">
           <p ref={manageAccountText} id="login-button-text">
             {user[0].email ? 'Hantera Konto' : 'Logga In'}
