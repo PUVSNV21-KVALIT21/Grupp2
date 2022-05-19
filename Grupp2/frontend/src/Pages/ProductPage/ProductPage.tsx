@@ -4,35 +4,29 @@ import { store, ADD_ITEM } from '../../Redux/cartReducer';
 import { Item } from '../../Models';
 import Sort from '../../Header/Components/Sort/Sort';
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 function ProductPage({ productsData: productsData }: { productsData: Item[] }) {
   const [sort, setSort] = useState('');
 
-  const value = '';
-
-  useEffect(() => {
-    console.log(sort);
-    if (sort === 'lowestPriceFirst') {
-      productsData.sort((a: Item, b: Item) => a.price - b.price);
-    }
-    if (sort === 'highestPriceFirst') {
-      productsData.sort((a: Item, b: Item) => b.price - a.price);
-    }
-    if (sort === 'AtoZ') {
-      productsData.sort((a: Item, b: Item) => (a.name > b.name ? 1 : -1));
-    }
-    if (sort === 'ZToA') {
-      productsData.sort((a: Item, b: Item) => (b.name > a.name ? 1 : -1));
-    } else {
-      productsData;
-    }
-  }, [value]);
+  if (sort === 'lowestPriceFirst') {
+    productsData.sort((a: Item, b: Item) => a.price - b.price);
+  }
+  if (sort === 'highestPriceFirst') {
+    productsData.sort((a: Item, b: Item) => b.price - a.price);
+  }
+  if (sort === 'AtoZ') {
+    productsData.sort((a: Item, b: Item) => (a.name > b.name ? 1 : -1));
+  }
+  if (sort === 'ZtoA') {
+    productsData.sort((a: Item, b: Item) => (b.name > a.name ? 1 : -1));
+  } else {
+    productsData;
+  }
 
   return (
     <div className="product-page">
       <div className="sort">
-        <Sort setSort={value} />
+        <Sort setSort={setSort} />
       </div>
       <div className="products">
         {productsData.map((item) => {

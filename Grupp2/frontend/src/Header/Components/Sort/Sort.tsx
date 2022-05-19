@@ -16,11 +16,11 @@ function SortComp({ setSort }: { setSort: any }) {
       </div>
       <div {...getCollapseProps()}>
         <div className="content">
-          <button onClick={handleClick} value={'AToZ'}>
+          <button onClick={handleClick} value={'AtoZ'}>
             A-Z
           </button>
           <br />
-          <button onClick={handleClick} value={'ZToA'}>
+          <button onClick={handleClick} value={'ZtoA'}>
             Z-A
           </button>
           <br />
