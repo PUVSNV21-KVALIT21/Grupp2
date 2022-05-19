@@ -19,7 +19,9 @@ function HeaderComponent() {
           <SearchBar query={text} onQueryChange={setText} />
         </div>
         <div className="header-buttons">
-          <div className="header-login-button">{/* <LogInButton /> */}</div>
+          <div className="header-login-button">
+            <LogInButton />
+          </div>
           <div className="header-cart-button">
             <CartButton />
           </div>
