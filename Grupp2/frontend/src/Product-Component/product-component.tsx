@@ -17,7 +17,7 @@ function Product({
 }) {
   return (
     <div className="product-wrapper">
-      <div className="product">
+      <div className="product hovertext" data-hover={description}>
         <h1 id="product-title">{title}</h1>
         <div className="product-price-wrapper">
           <h2 id="product-price">{price}</h2>
@@ -30,7 +30,7 @@ function Product({
           </button>
           <h4 id="news-item">{newsItem}</h4>
         </form>
-        <p>{description}</p>
+        <p>{description.length < 30 ? description : description.substring(0, 27) + '...'}</p>
       </div>
       <button className="product-button" onClick={AddItem}>
         KÖP
