@@ -9,7 +9,7 @@
 @if (showBanner)
 {
     <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
-        Use this space to summarize your privacy and cookie use policy. <a asp-page="/Privacy">Learn More</a>.
+        För att Hakim-Livs ska fungera loggar vi användardata. Genom att använda Hakim-Livs godkänner du vår integritetspolicy, inklusive cookiepolicy. <a asp-area="" asp-controller="Home" asp-action="Privacy">För att veta mer</a>.
         <button type="button" class="accept-policy close" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
             <span aria-hidden="true">Accept</span>
         </button>
@@ -19,6 +19,7 @@
             var button = document.querySelector("#cookieConsent button[data-cookie-string]");
             button.addEventListener("click", function (event) {
                 document.cookie = button.dataset.cookieString;
+                location.reload(true);
             }, false);
         })();
     </script>
