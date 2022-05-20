@@ -66,7 +66,7 @@ function Receipt({ cart }: { cart: [] }) {
         })}
 
         <div className="payment">
-          <h4 id="total-price-header">Summa: </h4>
+          <h4 id="total-price-header">Summa (inkl. leveransavgift): </h4>
           <h4 id="total-price">{Math.round(totalPrice * 100) / 100} kr</h4>
           <br />
           <h4 id="delivery-cost-header">Leveransavgift: </h4>

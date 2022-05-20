@@ -5,25 +5,6 @@
   max-width: 1250px;
 }
 
-#news-header {
-  position: relative;
-  top: 0.5rem;
-  left: 0.8rem;
-  color: #e02f2f;
-}
-
-.arrow-right {
-  position: relative;
-  bottom: 3px;
-  left: 0.5rem;
-  border: solid #e02f2f;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 5px;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
 @media screen and (max-width: 521px) {
   .main-page {
     grid-template-columns: auto;
