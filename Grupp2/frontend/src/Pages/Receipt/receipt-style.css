@@ -139,6 +139,7 @@
     margin: 0 auto;
     max-width: 900px;
     width: auto;
+
     grid-template-columns: 20% 1fr 25% auto;
   }
 
