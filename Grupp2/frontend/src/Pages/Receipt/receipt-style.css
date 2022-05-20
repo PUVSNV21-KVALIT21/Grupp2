@@ -139,7 +139,7 @@
     margin: 0 auto;
     max-width: 900px;
     width: auto;
-    grid-template-columns: 1fr 2fr auto;
+    grid-template-columns: 1fr 2fr 1fr 10%;
   }
 
   .receipt h2 {
