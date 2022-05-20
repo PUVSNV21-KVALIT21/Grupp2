@@ -26,11 +26,18 @@ namespace Grupp2.Services
 
         public async Task<IEnumerable<Product>> SearchProduct(string search)
         {
-            var products = await _database.Products
-                    .Where(l =>
-                    l.Name.Contains(search))
-                    .ToListAsync();
-            return products;
+            if(search == "" || search == null)
+            {
+                return null;
+            }
+            else
+            {
+                var products = await _database.Products
+                        .Where(l =>
+                        l.Name.Contains(search))
+                        .ToListAsync();
+                return products;
+            }
         }
 
         public async Task<IEnumerable<Product>> OrderProduct(string value)
