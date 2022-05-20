@@ -24,6 +24,7 @@ function LogInButton() {
     }
   }
 
+
     if (user[0].role == 'Admin') {
         return (
             <div>
@@ -72,8 +73,6 @@ function LogInButton() {
             </div>
         );
     }
- 
-
 }
 
 export default LogInButton;
