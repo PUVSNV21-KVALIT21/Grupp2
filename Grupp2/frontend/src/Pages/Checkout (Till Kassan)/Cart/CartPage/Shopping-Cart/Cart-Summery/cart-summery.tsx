@@ -5,7 +5,6 @@ import { CartItem, ShoppingCart } from '../../../../../../Models';
 import { Link } from 'react-router-dom';
 import { store, ADD_DELIVERY_COST } from '../../../../../../Redux/cartReducer';
 
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 function CartSummery({ cart }: { cart: [] }) {
   const [cartSum, setCartSum] = useState(0);
@@ -58,7 +57,7 @@ function CartSummery({ cart }: { cart: [] }) {
       payBtn.current.style.opacity = '50%';
       payBtn.current.style.pointerEvents = 'none';
       noItemsText.current.style.display = 'block';
-    } else if (cart.length > 0 && delivery && user.length > 0) {
+    } else if (cart.length > 0 && delivery && user[0].email) {
       console.log('cart.length > 0 && delivery');
       payBtn.current.style.opacity = '100%';
       payBtn.current.style.pointerEvents = 'auto';
@@ -130,7 +129,10 @@ function CartSummery({ cart }: { cart: [] }) {
       </div>
       <div className="checkout">
         <Link to={'/receipt'} ref={payBtn}>
-          <button ref={payBtn} className="pay-button" onClick={() => store.dispatch(ADD_DELIVERY_COST({deliveryCost: deliveryPrice}))}>
+          <button
+            ref={payBtn}
+            className="pay-button"
+            onClick={() => store.dispatch(ADD_DELIVERY_COST({ deliveryCost: deliveryPrice }))}>
             Betala
           </button>
         </Link>
