@@ -12,7 +12,7 @@ function SortComp({ setSort }: { setSort: any }) {
     <div className="collapsible">
       <div className="field" {...getToggleProps()}>
         {isExpanded ? 'Göm' : 'Sortera'}
-        <i className="arrow-down"></i>
+        {isExpanded ? <i className="arrow-up"></i> : <i className="arrow-down"></i>}
       </div>
       <div {...getCollapseProps()}>
         <div className="content">

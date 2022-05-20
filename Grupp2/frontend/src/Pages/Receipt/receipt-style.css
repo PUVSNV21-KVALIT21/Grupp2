@@ -139,11 +139,31 @@
     margin: 0 auto;
     max-width: 900px;
     width: auto;
-    grid-template-columns: 1fr 2fr auto;
+    grid-template-columns: 20% 1fr 25% auto;
+  }
+
+  .headers h3 {
+    font-size: 13px;
+  }
+
+  .headers h4 {
+    font-size: 13px;
   }
 
   .receipt h2 {
     position: relative;
     left: 18.5rem;
+  }
+
+  .payment h4 {
+    display: inline;
+  }
+
+  #total-price-header {
+    font-size: 20px;
+  }
+
+  #total-price {
+    font-size: 22px;
   }
 }
