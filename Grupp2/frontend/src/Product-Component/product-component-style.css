@@ -112,6 +112,8 @@
   position: absolute;
   z-index: 1;
   bottom: 1em;
+  line-break: normal;
+  overflow-wrap: break-word;
 }
 
 .hovertext:hover:before {
