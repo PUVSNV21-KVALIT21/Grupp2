@@ -63,7 +63,7 @@ namespace Grupp2.Controllers
             return products;
         }
 
-        [HttpGet("api/Products/{search}")]
+        [HttpGet("api/Products/Search/{search}")]
         public async Task<IEnumerable> GetProductsFromSearchAsync(string search)
         {
             var products = await _productService.SearchProduct(search);

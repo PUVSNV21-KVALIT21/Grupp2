@@ -22,7 +22,7 @@ export const getCategoryProducts = async (query?: string): Promise<Item[]> => {
 };
 
 export const getSearchProducts = async (query?: string): Promise<Item[]> => {
-  const response = await fetch(apiUrl + 'products/' + query);
+  const response = await fetch(apiUrl + 'Products/Search/' + query);
   console.log(response);
   return (await response.json()) as Item[];
 };
