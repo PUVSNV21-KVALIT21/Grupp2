@@ -60,7 +60,7 @@
 
 .product p {
   position: relative;
-  top: 1rem;
+  top: 2rem;
   font-family: 'Montserratblack';
   color: #000;
   height: 50px;
@@ -108,7 +108,7 @@
   text-align: center;
   border-radius: 5px;
   padding: 5px 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   position: absolute;
   z-index: 1;
   bottom: 1em;
