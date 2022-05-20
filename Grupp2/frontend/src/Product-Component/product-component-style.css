@@ -93,3 +93,28 @@
   color: rgb(26, 172, 26);
   height: 1rem;
 }
+
+.hovertext {
+  position: relative;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: #9e1717;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  z-index: 1;
+  bottom: 1em;
+}
+
+.hovertext:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
