@@ -38,9 +38,22 @@
                 <select class="form-control" name="category-select-list" asp-for="Category">
                     @foreach (var x in ((IEnumerable<SelectListItem>)ViewBag.Categories))
                     {
-                        <option value="@x.Value">@x.Text</option>
+                        if(Model.Category.Name == x.Text)
+                        {
+                            <option selected="selected" value="@x.Value">@x.Text</option>
+                        }
+                        else
+                        {
+                            <option value="@x.Value">@x.Text</option>
+                            
+                        }
                     }
                 </select>
+                <div class="form-group">
+                <label asp-for="ImgPath" class="control-label"></label>
+                <input asp-for="ImgPath" class="form-control" />
+                <span asp-validation-for="ImgPath" class="text-danger"></span>
+            </div>
                 <span asp-validation-for="Category" class="text-danger"></span>
             </div>
             <div class="form-group">

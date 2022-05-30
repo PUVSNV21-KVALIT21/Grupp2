@@ -7,26 +7,12 @@
   align-items: center;
   margin: 0 auto;
   max-width: 1000px;
-  width: auto;
   grid-template-columns: 3fr 1fr auto;
   margin-bottom: 1rem;
   padding: 1rem;
   box-shadow: 5px 10px 8px #888888;
   background-color: #a45959;
   border-radius: 10px;
-}
-
-#download-receipt-btn {
-  width: 11rem;
-  height: 4rem;
-  border: 1px solid black;
-  border-radius: 5px;
-  background-color: white;
-  font-size: 18px;
-}
-
-#download-receipt-btn:hover {
-  background-color: rgb(231, 114, 114);
 }
 
 #ctn-shopping-btn {
@@ -82,7 +68,7 @@
   margin: 0 auto;
   max-width: 900px;
   width: auto;
-  grid-template-columns: 1fr 2fr 10%;
+  grid-template-columns: 1fr 2fr 1fr 10%;
   background-color: white;
   border: 1px solid black;
   padding: 1rem;
@@ -108,6 +94,16 @@
   font-style: oblique;
 }
 
+#delivery-cost-header {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#delivery-cost {
+  font-size: 20px;
+  font-style: oblique;
+}
+
 #ocr-header {
   font-size: 20px;
   font-weight: 400;
@@ -116,4 +112,59 @@
 #ocr-number {
   font-size: 20px;
   font-style: oblique;
+}
+
+@media screen and (max-width: 521px) {
+  .receipt-header {
+    width: 440px;
+    font-size: 12px;
+  }
+
+  #ctn-shopping-btn {
+    position: relative;
+    width: 7rem;
+  }
+
+  #logo {
+    height: 10rem;
+  }
+
+  .receipt {
+    position: relative;
+    width: 440px;
+  }
+
+  .headers {
+    display: grid;
+    margin: 0 auto;
+    max-width: 900px;
+    width: auto;
+
+    grid-template-columns: 20% 1fr 25% auto;
+  }
+
+  .headers h3 {
+    font-size: 13px;
+  }
+
+  .headers h4 {
+    font-size: 13px;
+  }
+
+  .receipt h2 {
+    position: relative;
+    left: 18.5rem;
+  }
+
+  .payment h4 {
+    display: inline;
+  }
+
+  #total-price-header {
+    font-size: 20px;
+  }
+
+  #total-price {
+    font-size: 22px;
+  }
 }

@@ -1,31 +1,42 @@
 import './productpage-style.css';
-//import { useState } from 'react';
-import productData from '../../assets/data.json';
-//import { useEffect } from 'react';
 import Product from '../../Product-Component/product-component';
-//import { useDispatch } from 'react-redux';
 import { store, ADD_ITEM } from '../../Redux/cartReducer';
+import { Item } from '../../Models';
+import Sort from '../../Header/Components/Sort/Sort';
+import { useState } from 'react';
 
-function ProductPage() {
-  // const [query, setQuery] = useState('');
-  // const [newsItems, setNewsItems] = useState([]);
+function ProductPage({ productsData: productsData }: { productsData: Item[] }) {
+  const [sort, setSort] = useState('');
 
-  // useEffect(() => {
-  //   //Code from https://stackoverflow.com/questions/19269545/how-to-get-a-number-of-random-elements-from-an-array
-  //   const shuffled: any = [...productData].sort(() => 0.5 - Math.random()).slice(10);
-  //   setNewsItems(shuffled);
-  // }, []);
+  if (sort === 'lowestPriceFirst') {
+    productsData.sort((a: Item, b: Item) => a.price - b.price);
+  }
+  if (sort === 'highestPriceFirst') {
+    productsData.sort((a: Item, b: Item) => b.price - a.price);
+  }
+  if (sort === 'AtoZ') {
+    productsData.sort((a: Item, b: Item) => (a.name > b.name ? 1 : -1));
+  }
+  if (sort === 'ZtoA') {
+    productsData.sort((a: Item, b: Item) => (b.name > a.name ? 1 : -1));
+  } else {
+    productsData;
+  }
 
   return (
     <div className="product-page">
+      <div className="sort">
+        <Sort setSort={setSort} />
+      </div>
       <div className="products">
-        {productData.map((item) => {
+        {productsData.map((item) => {
           return (
             <Product
               key={item.id}
-              title={item.title}
+              title={item.name}
               price={item.price}
-              category={item.category}
+              newsItem={item.isNewsProduct ? 'Nyhetsvara' : ''}
+              category={item.category != null ? item.category.name : 'okänt'}
               description={item.description}
               AddItem={() => store.dispatch(ADD_ITEM(item))}
             />

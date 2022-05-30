@@ -7,11 +7,8 @@
   background-color: #f7f5f5;
 }
 
-.App {
-  margin: 0 auto;
-  max-width: 1200px;
-  min-width: 330px;
-  min-height: 100vh;
+body {
+  background-color: #f7f5f5;
 }
 
 button {
@@ -33,4 +30,3 @@ h3 {
 p {
   font-family: 'Montserratblack';
 }
-

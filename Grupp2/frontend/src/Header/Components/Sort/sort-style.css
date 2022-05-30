@@ -1,0 +1,60 @@
+.collapsible {
+  position: relative;
+  top: 0.75rem;
+  left: 3rem;
+  width: 120px;
+  height: auto;
+  min-height: 2rem;
+  z-index: 1;
+}
+
+.field {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.collapsible:hover {
+  cursor: pointer;
+}
+
+.content {
+  border: 1px solid rgb(235, 235, 235);
+  background-color: #fff;
+}
+
+.content button {
+  padding: 0.5rem;
+  width: 120px;
+  border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.content button:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.content button:active {
+  transform: scale(0.98);
+}
+
+.arrow-down {
+  position: relative;
+  left: 1rem;
+  bottom: 0.2rem;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.arrow-up {
+  position: relative;
+  left: 2.55rem;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(135);
+}

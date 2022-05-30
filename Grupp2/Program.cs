@@ -20,6 +20,17 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<ProductService>();
 
+builder.Services.AddSwaggerGen();
+
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    // This lambda determines whether user consent for non-essential 
+    // cookies is needed for a given request.
+    options.CheckConsentNeeded = context => true;
+    // requires using Microsoft.AspNetCore.Http;
+    options.MinimumSameSitePolicy = SameSiteMode.None;
+});
+
 // In production, the React files will be served from this directory
 builder.Services.AddSpaStaticFiles(configuration =>
 {
@@ -43,20 +54,31 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSpaStaticFiles();
+app.UseCookiePolicy();
 
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    }
+    );
+}
 
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
       name: "Admin",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+      pattern: "{area:exists}/{controller=Product}/{action=Index}/{id?}");
     app.MapControllerRoute(
         name: "default",
-        pattern: "{action=Index}/{id?}");
+        pattern: "{controller=Home}/{action=Index}/{id?}");
     app.MapRazorPages();
 });
 
